@@ -7,6 +7,10 @@ use PDO;
 
 class DinosaurHydrator
 {
+    /** Connects the database and fetches all dinosaur information, appending the foodType
+     * table with a left join and returning in an array
+     * @return Array
+     */
     public static function getAllDinos() : Array
     {
         // Creates a variable which points to the correct database and gives username and password
@@ -20,6 +24,11 @@ class DinosaurHydrator
         return $query->fetchAll();
     }
 
+    /** Connects the database and fetches one dinosaurs information, appending the foodType
+     * table with a left join and returning a Dinosaur object
+     * @param int $id
+     * @return Dinosaur
+     */
     public static function getDino(int $id) : Dinosaur
     {
         // Creates a variable which points to the correct database and gives username and password

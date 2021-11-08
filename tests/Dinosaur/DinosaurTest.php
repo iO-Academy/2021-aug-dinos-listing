@@ -5,8 +5,6 @@ require_once 'src/Dinosaur/Dinosaur.php';
 use DinoApp\Dinosaur\Dinosaur;
 use PHPUnit\Framework\TestCase;
 
-// New Class! 🥰
-
 class DinosaurTest extends TestCase {
     public function testConstruct()
     {
