@@ -1,0 +1,39 @@
+$darkGreen: #21594e;
+$green: #3db14c;
+$limeGreen: #d9ed14;
+$yellow: #fef97a;
+$red: #cc192c;
+$red2: #a31423;
+
+.navbar {
+  background-color: $darkGreen;
+  color: $limeGreen;
+}
+
+.body {
+  background-color: $darkGreen;
+}
+
+.card {
+  background-color: $limeGreen;
+  color: $darkGreen;
+}
+
+.btn {
+  background-color: $red2;
+  color: #ffffff;
+}
+
+.btn:hover {
+  color: #ffffff;
+}
+
+.card-body {
+  height: 80px;
+  justify-content: space-between;
+}
+
+.dino-img {
+  border: 1px solid $darkGreen;
+}
+
