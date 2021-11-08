@@ -26,7 +26,7 @@ class Dinosaur
         return $this->foodType;
     }
     public function getHeight(): float {
-        return $this->weight;
+        return $this->height;
     }
     public function getWeight(): float {
         return $this->weight;
