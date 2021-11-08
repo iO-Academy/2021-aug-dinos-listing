@@ -18,17 +18,17 @@ class Museum
         $output='';
         foreach ($dinos as $dino){
             if($dino instanceof Dinosaur){
-                $output .= '<div>';
-                $output .=     '<h2>' . $dino->getSpecies() . '</h2>';
-                $output .=     '<div>';
-                $output .=         '<img src="' . $dino->getImageUrl() .'"/>';
-                $output .=     '</div>';
-                $output .=     '<div>';
-                $output .=         '<div>';
-                $output .=             '<img src="' . FoodIcon::getIconUrl($dino->getFoodType()) . '"/>';
-                $output .=             '<div>' . $dino->getFoodType() . '</div>';
+                $output .= '<div class="card m-4" style="width: 18rem;">';
+                $output .=     '<h2 class="card-title text-center mt-3">' . $dino->getSpecies() . '</h2>';
+                $output .=     '<img class="dino-img card-img-top w-75 mx-auto" alt="Image of a' . $dino->getSpecies() . '" src="' . $dino->getImageUrl() .'"/>';
+                $output .=     '<div class="card-body d-flex flex-row justify-content-space-between">';
+                $output .=         '<div class="food-type d-flex flex-row align-items-center">';
+                $output .=             '<img width="30px src="' . FoodIcon::getIconUrl($dino->getFoodType()) . '"/>';
+                $output .=             '<p class="card-text">' . $dino->getFoodType() . '</p>';
                 $output .=         '</div>';
-                $output .=         '<button>More</button>';
+                $output .=         '<div class="button">';
+                $output .=              '<a href="#" class="btn">More info</a>';
+                $output .=         '</div>';
                 $output .=     '</div>';
                 $output .= '</div>';
             }
@@ -36,3 +36,4 @@ class Museum
         return $output;
     }
 }
+

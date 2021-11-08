@@ -15,31 +15,31 @@ class Dinosaur
     protected int $age;
     protected string $imageUrl;
 
-    /** Class Constructor made for the purposes of unit testing
-     * @param int $id
-     * @param string $species
-     * @param string $foodType
-     * @param float $height
-     * @param float $weight
-     * @param float $length
-     * @param int $killerRating
-     * @param int $intelligence
-     * @param int $age
-     * @param string $imageUrl
-     */
-    public function __construct(int $id, string $species, string $foodType, float $height, float $weight, float $length, int $killerRating, int $intelligence, int $age, string $imageUrl)
-    {
-        $this->id = $id;
-        $this->species = $species;
-        $this->foodType = $foodType;
-        $this->height = $height;
-        $this->weight = $weight;
-        $this->length = $length;
-        $this->killerRating = $killerRating;
-        $this->intelligence = $intelligence;
-        $this->age = $age;
-        $this->imageUrl = $imageUrl;
-    }
+//    /** Class Constructor made for the purposes of unit testing
+//     * @param int $id
+//     * @param string $species
+//     * @param string $foodType
+//     * @param float $height
+//     * @param float $weight
+//     * @param float $length
+//     * @param int $killerRating
+//     * @param int $intelligence
+//     * @param int $age
+//     * @param string $imageUrl
+//     */
+//    public function __construct(int $id, string $species, string $foodType, float $height, float $weight, float $length, int $killerRating, int $intelligence, int $age, string $imageUrl)
+//    {
+//        $this->id = $id;
+//        $this->species = $species;
+//        $this->foodType = $foodType;
+//        $this->height = $height;
+//        $this->weight = $weight;
+//        $this->length = $length;
+//        $this->killerRating = $killerRating;
+//        $this->intelligence = $intelligence;
+//        $this->age = $age;
+//        $this->imageUrl = $imageUrl;
+//    }
 
     // Getters
 
