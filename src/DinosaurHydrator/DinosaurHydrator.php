@@ -10,7 +10,7 @@ class DinosaurHydrator
     public static function getAllDinos() : Array
     {
         // Creates a variable which points to the correct database and gives username and password
-        protected $db = new PDO('mysql:host=db;dbname=dinosaurs;', 'root', 'password');
+        $db = new PDO('mysql:host=db;dbname=dinosaurs;', 'root', 'password');
         // Prepares (/stores) the criteria for data we want to retrieve from the db
         $query = $db->prepare('SELECT `dinos`.`id`, `dinos`.`species`, `dinos`.`foodType`, `dinos`.`height`, `dinos`.`weight`, `dinos`.`length`, `dinos`.`killerRating`, `dinos`.`intelligence`, `dinos`.`age`, `dinos`.`imageUrl` FROM `dinos` INNER JOIN `foodTypes` ON `dinos`.`foodType` = `foodTypes`.`id`;');
         $query->execute();
