@@ -1,0 +1,10 @@
+{
+  "autoload": {
+    "psr-4": {
+      "DinoApp\\":"src/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit tests/"
+  }
+}
