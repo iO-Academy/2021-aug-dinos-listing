@@ -17,7 +17,7 @@ class Museum
     {
         $output='';
         foreach ($dinos as $dino){
-            if($dino){
+            if($dino instanceof Dinosaur){
                 $output .= '<div>';
                 $output .=     '<h2>' . $dino->getSpecies() . '</h2>';
                 $output .=     '<div>';

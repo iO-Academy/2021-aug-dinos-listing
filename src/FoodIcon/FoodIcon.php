@@ -5,6 +5,12 @@ use PDO;
 
 class FoodIcon
 {
+    /**
+     * Searches the database for the corresponding image url for a given foodType.
+     *
+     * @param string $foodType The food type we're
+     * @return string
+     */
     public static function getIconUrl(string $foodType)
     {
         $db = new PDO('mysql:host=db;dbname=dinosaurs;', 'root', 'password');
