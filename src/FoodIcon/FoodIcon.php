@@ -14,7 +14,7 @@ class FoodIcon
         $iconArray = $query->fetch();
         $output = '';
         if($iconArray){
-            $output .= 'Logos/';
+            $output .= 'Icons/';
             $output .= $iconArray['imageUrl'];
         }
         return $output;
