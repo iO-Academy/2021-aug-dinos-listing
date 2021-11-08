@@ -15,7 +15,7 @@ class DinosaurHydrator
         $query = $db->prepare('SELECT `dinos`.`id`, `dinos`.`species`, `dinos`.`foodType`, `dinos`.`height`, `dinos`.`weight`, `dinos`.`length`, `dinos`.`killerRating`, `dinos`.`intelligence`, `dinos`.`age`, `dinos`.`imageUrl` FROM `dinos` INNER JOIN `foodTypes` ON `dinos`.`foodType` = `foodTypes`.`id`;');
         $query->execute();
         // Sets the fetch mode (what format we get the data returned in) to the class of Dinosaur
-        $query->setFetchMode(PDO::FETCH_CLASS, Dinosaur::class);
+        $query->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, Dinosaur::class);
         // Fetches all rows which match the criteria (as opposed to fetch() which returns one row)
         return $query->fetchAll();
     }
@@ -28,7 +28,7 @@ class DinosaurHydrator
         $query = $db->prepare('SELECT `dinos`.`id`, `dinos`.`species`, `dinos`.`foodType`, `dinos`.`height`, `dinos`.`weight`, `dinos`.`length`, `dinos`.`killerRating`, `dinos`.`intelligence`, `dinos`.`age`, `dinos`.`imageUrl` FROM `dinos` INNER JOIN `foodTypes` ON `dinos`.`foodType` = `foodTypes`.`id` WHERE `id` = :id;');
         $query->execute([':id' => $id]);
         // Sets the fetch mode (what format we get the data returned in) to the class of Dinosaur
-        $query->setFetchMode(PDO::FETCH_CLASS, Dinosaur::class);
+        $query->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, Dinosaur::class);
         // Fetches all rows which match the criteria (as opposed to fetch() which returns one row)
         return $query->fetch();
     }
