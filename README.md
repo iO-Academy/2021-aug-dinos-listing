@@ -1,2 +1,2 @@
-# year-cohort-projectName
+# 2021-FlatCapybaras-dinosaurus
 project template repo
