@@ -6,6 +6,12 @@ use DinoApp\Dinosaur\Dinosaur;
 
 class Museum
 {
+    /**
+     * Takes in an array of dinosaur objects and puts them into the format to be displayed on the homepage.
+     *
+     * @param array $dinos an array of Dinosaur objects.
+     * @return string The html to display the dinosaurs on the homepage.
+     */
     public static function displayAllDinos(array $dinos) :string
     {
         $output='';
