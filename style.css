@@ -1,10 +1,15 @@
-.navbar {
-  background-color: #21594e;
-  color: #d9ed14;
+h2 {
+  font-size: 22px;
 }
 
-.body {
+.navbar,
+.body,
+.btn:hover {
   background-color: #21594e;
+}
+
+.navbar {
+  color: #d9ed14;
 }
 
 .card {
@@ -27,12 +32,20 @@
 }
 
 .dino-img {
-  border: 1px solid #21594e;
-  max-height: 200px;
+  height: 100%;
+  width: auto;
 }
 
 .row {
   margin-right: 0;
+}
+
+.dino-img-container {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  border: 1px solid #21594e;
 }
 
 /*# sourceMappingURL=style.css.map */

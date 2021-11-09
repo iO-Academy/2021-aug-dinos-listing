@@ -2,25 +2,28 @@ $darkGreen: #21594e;
 $green: #3db14c;
 $limeGreen: #d9ed14;
 $yellow: #fef97a;
-$red: #cc192c;
-$red2: #a31423;
+$red: #a31423;
 
-.navbar {
-  background-color: $darkGreen;
-  color: $limeGreen;
+h2 {
+  font-size: 22px;
 }
 
-.body {
+.navbar,
+.body,
+.btn:hover {
   background-color: $darkGreen;
+}
+
+.navbar {
+  color: $limeGreen;
 }
 
 .card {
   background-color: $limeGreen;
   color: $darkGreen;
 }
-
-.btn {
-  background-color: $red2;
+ .btn {
+  background-color: $red;
   color: #ffffff;
 }
 
@@ -33,13 +36,33 @@ $red2: #a31423;
   justify-content: space-between;
 }
 
-.dino-img {
-  border: 1px solid $darkGreen;
-  max-height: 200px;
+//@mixin dino-imgs {
+//  @if height > width {
+//    height: auto;
+//    width: 100%;
+//  } @else {
+//    height: 100%;
+//    width: auto;
+//  }
+//}
 
+.dino-img {
+  height: 100%;
+  width: auto;
+  //height: auto;
+  //width: 100%;
+  //@include dino-imgs;
 }
 
 .row {
   margin-right: 0;
+}
+
+.dino-img-container {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  border: 1px solid $darkGreen;
 }
 
