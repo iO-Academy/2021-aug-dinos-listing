@@ -7,7 +7,6 @@ body,
 .btn:hover,
 .btn:focus {
   background-color: #21594e;
-  min-height: 100vh;
 }
 
 body {
