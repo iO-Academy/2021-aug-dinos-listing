@@ -21,6 +21,15 @@ require_once 'vendor/autoload.php';
         <p class="h1">Website Name</p>
     </nav>
 
+
+    <form class="w-25 d-flex flex-row ">
+        <div class="form-group">
+            <input type="search" class="form-control" id="exampleFormControlInput1" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+
     <div class="row row-cols-sm-1 row-cols-md-2 row-cols-xl-3 justify-content-center">
         <?php
         echo Museum::displayAllDinos(DinosaurHydrator::getAllDinos());
