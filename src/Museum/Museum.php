@@ -41,7 +41,7 @@ class Museum
         $output = '<div class="container displayCase p-4">';
         $output .=     '<div class="row ">';
         $output .=          '<div class="col">';
-        $output .=              '<img class="w-100 img01" alt="Image of a ' . $dino->getSpecies() . '" src="' . $dino->getImageUrl() .'" onclick="document.getElementById("modal01").style.display="block""/>';
+        $output .=              '<img class="w-100 img01" alt="Image of a ' . $dino->getSpecies() . '" src="' . $dino->getImageUrl() . '" />';
         $output .=          '</div>';
         $output .=          '<div class="col-6">';
         $output .=              '<div class="">';
