@@ -25,7 +25,7 @@ class Museum
                 $output .=     '</div>';
                 $output .=     '<div>';
                 $output .=         '<div>';
-                $output .=             '<img src="' . FoodIcon::getIconUrl($dino->getFoodType()) . '"/>';
+                $output .=             '<img src="Icons/' . $dino->getLogoUrl() . '"/>';
                 $output .=             '<div>' . $dino->getFoodType() . '</div>';
                 $output .=         '</div>';
                 $output .=         '<button>More</button>';
