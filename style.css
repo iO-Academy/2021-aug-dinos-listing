@@ -22,14 +22,13 @@ body,
   color: #ffffff;
 }
 
+.btn:hover {
+  color: #ffffff;
+}
+
 .card-body {
   height: 80px;
   justify-content: space-between;
-}
-
-.dino-img {
-  min-height: 250px;
-  min-width: 250px;
 }
 
 .row {
@@ -42,6 +41,9 @@ body,
   height: 250px;
   overflow: hidden;
   border: 1px solid #21594e;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -22,19 +22,19 @@ body,
   background-color: $limeGreen;
   color: $darkGreen;
 }
- .btn {
+
+.btn {
   background-color: $red;
+  color: #ffffff;
+}
+
+.btn:hover{
   color: #ffffff;
 }
 
 .card-body {
   height: 80px;
   justify-content: space-between;
-}
-
-.dino-img {
-  min-height: 250px;
-  min-width: 250px;
 }
 
 .row {
@@ -47,5 +47,8 @@ body,
   height: 250px;
   overflow: hidden;
   border: 1px solid $darkGreen;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
 }
 
