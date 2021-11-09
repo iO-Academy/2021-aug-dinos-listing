@@ -27,7 +27,7 @@ class Museum
                 $output .=             '<p class="card-text">' . $dino->getFoodType() . '</p>';
                 $output .=         '</div>';
                 $output .=         '<div class="button">';
-                $output .=              '<a href="#" class="btn">More info</a>';
+                $output .=              '<a href="displayCase.php?id=' . $dino->getId() . '" class="btn">More info</a>';
                 $output .=         '</div>';
                 $output .=     '</div>';
                 $output .= '</div>';
