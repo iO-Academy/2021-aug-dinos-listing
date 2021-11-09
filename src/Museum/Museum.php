@@ -47,7 +47,7 @@ class Museum
         $output .=              '<div class="">';
         $output .=                  '<h2 class="align-text-center">' . $dino->getSpecies() . '</h2>';
         $output .=                  '<div class="">';
-        $output .=                      '<img src="' . FoodIcon::getIconUrl($dino->getFoodType()) . '"/>';
+        $output .=                      '<img width="50px" alt="Icon to represent '. $dino->getFoodType().'" src="Icons/' . $dino->getLogoUrl() . '"/>';
         $output .=                  '</div>';
         $output .=                  '<p class="">' . $dino->getFoodType() . '</p>';
         $output .=                  '<p class="">Height: ' . $dino->getHeight() . 'ft</p>';
