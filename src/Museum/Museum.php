@@ -55,7 +55,7 @@ class Museum
         $output .=                  '<p class="">Length: ' . $dino->getLength() . 'ft</p>';
         $output .=                  '<p class="">Killer Rating: ' . $dino->getKillerRating() . '/10</p>';
         $output .=                  '<p class="">Intelligence: ' . $dino->getIntelligence() . '/10</p>';
-        $output .=                  '<p class="">They lived ' . $dino->getAge() . ' million years ago</p>';
+        $output .=                  '<p class="">They lived ' . $dino->getAge() . ' million years ago.</p>';
         $output .=              '</div>';
         $output .=         '</div>';
         $output .=     '</div>';

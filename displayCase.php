@@ -18,7 +18,7 @@ require_once 'vendor/autoload.php';
 <body>
     <nav class="navbar justify-content-center">
         <img width="150px" alt="Capysaurus Logo" src="Images/CapybarasaurusLogo.gif" />
-        <p class="h1">Website Title</p>
+        <p class="h1">Capynotasaurus</p>
     </nav>
 
     <div class="body row g-0 m-4 justify-content-center">
