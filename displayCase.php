@@ -17,11 +17,11 @@ require_once 'vendor/autoload.php';
 </head>
 <body>
     <nav class="navbar justify-content-center">
-        <img width="150px" alt="Capysaurus Logo" src="Images/CapysaurusLogoLime.png" />
+        <img width="150px" alt="Capysaurus Logo" src="Images/CapybarasaurusLogo.gif" />
         <p class="h1">Website Title</p>
     </nav>
 
-    <div class="body row g-0 justify-content-center">
+    <div class="body row g-0 m-4 justify-content-center">
             <?php
             echo Museum::displayDino(DinosaurHydrator::getDino($_GET['id']));
             ?>
