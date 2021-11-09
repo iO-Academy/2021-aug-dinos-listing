@@ -17,10 +17,10 @@ class Museum
         $output='';
         foreach ($dinos as $dino){
             if($dino instanceof Dinosaur){
-                $output .= '<style> .dino-img-container{background-image:' . $dino->getImageUrl() .';} </style>';
+                $output .= '<style> .dino'. $dino->getId().'{background-image: ' . $dino->getImageUrl() .';} </style>';
                 $output .= '<div>';
                 $output .=     '<h2>' . $dino->getSpecies() . '</h2>';
-                $output .=     '<div class="dino-img-container">';
+                $output .=     '<div class="dino'. $dino->getId().'">';
                 $output .=     '</div>';
                 $output .=     '<div>';
                 $output .=         '<div>';

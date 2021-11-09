@@ -3,11 +3,11 @@ use DinoApp\Dinosaur\Dinosaur;
 use DinoApp\Museum\Museum;
 
 require_once 'vendor/autoload.php';
+$url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Maiasaura_skeleton.jpg/220px-Maiasaura_skeleton.jpg';
+$testDino = $testDino = new Dinosaur(1, 'test', 'Herbivore', 52.5, 420, 26.2, 9, 2,69, $url, 'herbivore.png');
 
-$tom = new Dinosaur(1, 'Tom', 'Herbivore', 39.9, 420,69,3,5,69,
-'Icons/omnivore.png', 'herbivore.png');
 
 
-$dinoArray = [$tom, $tom, $tom];
+$dinoArray = [$testDino, $testDino, $testDino];
 
 echo Museum::displayAllDinos($dinoArray);

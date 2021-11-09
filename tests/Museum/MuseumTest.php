@@ -14,7 +14,7 @@ class MuseumTest extends TestCase
         $testDino = new Dinosaur(1, 'test', 'Herbivore', 52.5, 420, 26.2, 9, 2,69, $url, 'herbivore.png');
         $dinoArray = [$testDino, $testDino, $testDino];
         $result = Museum::displayAllDinos($dinoArray);
-        $expected = '<div><h2>test</h2><div><img src="' . $url .'"/></div><div><div><img src="Icons/herbivore.png"/><div>Herbivore</div></div><button>More</button></div></div><div><h2>test</h2><div><img src="' . $url .'"/></div><div><div><img src="Icons/herbivore.png"/><div>Herbivore</div></div><button>More</button></div></div><div><h2>test</h2><div><img src="' . $url .'"/></div><div><div><img src="Icons/herbivore.png"/><div>Herbivore</div></div><button>More</button></div></div>';
+        $expected ='<div><h2>Tom</h2><div><img src="Icons/omnivore.png"/></div><div><div><img src="Icons/herbivore.png"/><div>Herbivore</div></div><button>More</button></div></div><div><h2>Tom</h2><div><img src="Icons/omnivore.png"/></div><div><div><img src="Icons/herbivore.png"/><div>Herbivore</div></div><button>More</button></div></div><div><h2>Tom</h2><div><img src="Icons/omnivore.png"/></div><div><div><img src="Icons/herbivore.png"/><div>Herbivore</div></div><button>More</button></div></div>';
         $this->assertEquals($expected, $result);
     }
 
