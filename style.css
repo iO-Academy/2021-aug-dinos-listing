@@ -1,6 +1,13 @@
-.navbar {
+h2 {
+  font-size: 22px;
+}
+
+.navbar,
+body,
+.btn:hover,
+.btn:focus {
   background-color: #21594e;
-  color: #d9ed14;
+  min-height: 100vh;
 }
 
 body {
@@ -22,18 +29,28 @@ body {
   color: #ffffff;
 }
 
+.btn:focus {
+  color: #ffffff;
+}
+
 .card-body {
   height: 80px;
   justify-content: space-between;
 }
 
-.dino-img {
-  border: 1px solid #21594e;
-  max-height: 200px;
-}
-
 .row {
   margin-right: 0;
+}
+
+.dino-img-container {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  border: 1px solid #21594e;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
 }
 
 /*# sourceMappingURL=style.css.map */

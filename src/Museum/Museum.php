@@ -3,7 +3,6 @@
 namespace DinoApp\Museum;
 
 use DinoApp\Dinosaur\Dinosaur;
-use DinoApp\FoodIcon\FoodIcon;
 
 class Museum
 {
@@ -18,12 +17,13 @@ class Museum
         $output='';
         foreach ($dinos as $dino){
             if($dino instanceof Dinosaur){
+                $output .= '<style> .dino'. $dino->getId().'{background-image: url(' . $dino->getImageUrl() .');} </style>';
                 $output .= '<div class="card m-4" style="width: 18rem;">';
                 $output .=     '<h2 class="card-title text-center mt-3">' . $dino->getSpecies() . '</h2>';
-                $output .=     '<img class="dino-img card-img-top w-75 mx-auto" alt="Image of a ' . $dino->getSpecies() . '" src="' . $dino->getImageUrl() .'"/>';
-                $output .=     '<div class="card-body d-flex flex-row justify-content-space-between align-items-center">';
-                $output .=         '<div class="food-type d-flex flex-row">';
-                $output .=             '<img width="30px src="' . FoodIcon::getIconUrl($dino->getFoodType()) . '"/>';
+                $output .=     '<div class="dino-img-container mx-auto dino'. $dino->getId().'"></div>';
+                $output .=     '<div class="card-body d-flex flex-row align-items-center py-5">';
+                $output .=         '<div class="food-type d-flex flex-row align-items-center">';
+                $output .=             '<img width="50px" alt="Icon to represent '. $dino->getFoodType().'" src="Icons/' . $dino->getLogoUrl() . '"/>';
                 $output .=             '<p class="card-text">' . $dino->getFoodType() . '</p>';
                 $output .=         '</div>';
                 $output .=         '<div class="button">';

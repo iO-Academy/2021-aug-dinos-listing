@@ -2,12 +2,18 @@ $darkGreen: #21594e;
 $green: #3db14c;
 $limeGreen: #d9ed14;
 $yellow: #fef97a;
-$red: #cc192c;
-$red2: #a31423;
+$red: #a31423;
 
-.navbar {
+h2 {
+  font-size: 22px;
+}
+
+.navbar,
+body,
+.btn:hover,
+.btn:focus {
   background-color: $darkGreen;
-  color: $limeGreen;
+  min-height: 100vh;
 }
 
 body {
@@ -21,11 +27,14 @@ body {
 }
 
 .btn {
-  background-color: $red2;
+  background-color: $red;
   color: #ffffff;
 }
 
-.btn:hover {
+.btn:hover{
+  color: #ffffff;
+}
+.btn:focus{
   color: #ffffff;
 }
 
@@ -34,13 +43,18 @@ body {
   justify-content: space-between;
 }
 
-.dino-img {
-  border: 1px solid $darkGreen;
-  max-height: 200px;
-
-}
-
 .row {
   margin-right: 0;
+}
+
+.dino-img-container {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  border: 1px solid $darkGreen;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
 }
 
