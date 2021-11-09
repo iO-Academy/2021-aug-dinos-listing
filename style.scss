@@ -10,11 +10,12 @@ $red2: #a31423;
   color: $limeGreen;
 }
 
-.body {
+body {
   background-color: $darkGreen;
+  min-height: 100vh;
 }
 
-.card {
+.card, .displayCase {
   background-color: $limeGreen;
   color: $darkGreen;
 }

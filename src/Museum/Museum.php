@@ -35,5 +35,33 @@ class Museum
         }
         return $output;
     }
+
+    public static function displayDino(Dinosaur $dino) :string
+    {
+        $output = '<div class="container displayCase p-4">';
+        $output .=     '<div class="row ">';
+        $output .=          '<div class="col">';
+        $output .=              '<img class="w-100" alt="Image of a ' . $dino->getSpecies() . '" src="' . $dino->getImageUrl() .'"/>';
+        $output .=          '</div>';
+        $output .=          '<div class="col-6">';
+        $output .=              '<div class="">';
+        $output .=                  '<h2 class="align-text-center">' . $dino->getSpecies() . '</h2>';
+        $output .=                  '<div class="">';
+        $output .=                      '<img src="' . FoodIcon::getIconUrl($dino->getFoodType()) . '"/>';
+        $output .=                  '</div>';
+        $output .=                  '<p class="">' . $dino->getFoodType() . '</p>';
+        $output .=                  '<p class="">Height: ' . $dino->getHeight() . 'ft</p>';
+        $output .=                  '<p class="">Weight: ' . $dino->getWeight() . 'lbs</p>';
+        $output .=                  '<p class="">Length: ' . $dino->getLength() . 'ft</p>';
+        $output .=                  '<p class="">Killer Rating: ' . $dino->getKillerRating() . '/10</p>';
+        $output .=                  '<p class="">Intelligence: ' . $dino->getIntelligence() . '/10</p>';
+        $output .=                  '<p class="">They lived ' . $dino->getAge() . ' million years ago</p>';
+        $output .=              '</div>';
+        $output .=         '</div>';
+        $output .=     '</div>';
+        $output .= '</div>';
+        return $output;
+    }
+
 }
 

@@ -1,5 +1,8 @@
 <?php
 
+use DinoApp\DinosaurHydrator\DinosaurHydrator;
+use DinoApp\Museum\Museum;
+
 require_once 'vendor/autoload.php';
 
 ?>
@@ -13,13 +16,15 @@ require_once 'vendor/autoload.php';
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <nav class="navbar sticky-top justify-content-center">
+    <nav class="navbar justify-content-center">
         <img width="150px" alt="Capysaurus Logo" src="Images/CapysaurusLogoLime.png" />
-        <p class="h1">Website Name</p>
+        <p class="h1">Capybarasaurus</p>
     </nav>
 
-    <div class=" body row row-cols-sm-1 row-cols-md-2 row-cols-xl-3 justify-content-center">
-<!--        ID can be accessed with $_GET['id']-->
+    <div class="body row g-0 justify-content-center">
+            <?php
+            echo Museum::displayDino(DinosaurHydrator::getDino($_GET['id']));
+            ?>
     </div>
 </body>
 </html>

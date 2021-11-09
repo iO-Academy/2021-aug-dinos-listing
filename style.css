@@ -3,11 +3,12 @@
   color: #d9ed14;
 }
 
-.body {
+body {
   background-color: #21594e;
+  min-height: 100vh;
 }
 
-.card {
+.card, .displayCase {
   background-color: #d9ed14;
   color: #21594e;
 }
