@@ -31,10 +31,6 @@ body,
   justify-content: space-between;
 }
 
-.row {
-  margin-right: 0;
-}
-
 .dino-img-container {
   position: relative;
   width: 250px;
