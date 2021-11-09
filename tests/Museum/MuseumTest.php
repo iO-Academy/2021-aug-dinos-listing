@@ -28,6 +28,22 @@ class MuseumTest extends TestCase
         $this->assertEquals($expected, $result);
     }
 
+    public function testNotDinoDisplayAllDinosaurs()
+    {
+        $testArray = ['','',''];
+        $result = Museum::displayAllDinos($testArray);
+        $expected = 'This is not a Dinosaur :(. <br>This is not a Dinosaur :(. <br>This is not a Dinosaur :(. <br>';
+        $this->assertEquals($expected, $result);
+    }
+
+    public function testNullDisplayAllDinos()
+    {
+        $testArray = [];
+        $result = Museum::displayAllDinos($testArray);
+        $expected = "Sorry the Dinosaurs are all extinct :'(";
+        $this->assertEquals($expected, $result);
+    }
+
     public function testMalformedDisplayAllDinos()
     {
         $this->expectException(TypeError::class);

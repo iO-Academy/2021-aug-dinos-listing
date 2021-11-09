@@ -5,6 +5,7 @@
     }
   },
   "scripts": {
-    "test": "phpunit tests/"
+    "test": "phpunit tests/",
+    "watch": "sass --watch SCSS/style.scss CSS/style.css"
   }
 }
