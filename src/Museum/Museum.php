@@ -20,9 +20,9 @@ class Museum
             if($dino instanceof Dinosaur){
                 $output .= '<div class="card m-4" style="width: 18rem;">';
                 $output .=     '<h2 class="card-title text-center mt-3">' . $dino->getSpecies() . '</h2>';
-                $output .=     '<img class="dino-img card-img-top w-75 mx-auto" alt="Image of a' . $dino->getSpecies() . '" src="' . $dino->getImageUrl() .'"/>';
-                $output .=     '<div class="card-body d-flex flex-row justify-content-space-between">';
-                $output .=         '<div class="food-type d-flex flex-row align-items-center">';
+                $output .=     '<img class="dino-img card-img-top w-75 mx-auto" alt="Image of a ' . $dino->getSpecies() . '" src="' . $dino->getImageUrl() .'"/>';
+                $output .=     '<div class="card-body d-flex flex-row justify-content-space-between align-items-center">';
+                $output .=         '<div class="food-type d-flex flex-row">';
                 $output .=             '<img width="30px src="' . FoodIcon::getIconUrl($dino->getFoodType()) . '"/>';
                 $output .=             '<p class="card-text">' . $dino->getFoodType() . '</p>';
                 $output .=         '</div>';

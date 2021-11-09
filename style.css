@@ -28,6 +28,7 @@
 
 .dino-img {
   border: 1px solid #21594e;
+  max-height: 200px;
 }
 
 .row {
