@@ -16,6 +16,7 @@ class Dinosaur
     protected string $imageUrl;
     protected string $logoUrl;
 
+
     /** Class Constructor made for the purposes of unit testing
      * @param int $id
      * @param string $species
