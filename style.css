@@ -1,0 +1,49 @@
+h2 {
+  font-size: 22px;
+}
+
+.navbar,
+body,
+.btn:hover {
+  background-color: #21594e;
+}
+
+.navbar {
+  color: #d9ed14;
+}
+
+.card {
+  background-color: #d9ed14;
+  color: #21594e;
+}
+
+.btn {
+  background-color: #a31423;
+  color: #ffffff;
+}
+
+.btn:hover {
+  color: #ffffff;
+}
+
+.card-body {
+  height: 80px;
+  justify-content: space-between;
+}
+
+.row {
+  margin-right: 0;
+}
+
+.dino-img-container {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  border: 1px solid #21594e;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+}
+
+/*# sourceMappingURL=style.css.map */
