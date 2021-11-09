@@ -21,7 +21,7 @@ require_once 'vendor/autoload.php';
         <p class="h1">Website Name</p>
     </nav>
 
-    <div class=" body row row-cols-sm-1 row-cols-md-2 row-cols-xl-3 justify-content-center">
+    <div class="row row-cols-sm-1 row-cols-md-2 row-cols-xl-3 justify-content-center">
         <?php
         echo Museum::displayAllDinos(DinosaurHydrator::getAllDinos());
         ?>

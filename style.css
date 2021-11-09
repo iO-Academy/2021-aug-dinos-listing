@@ -3,7 +3,7 @@ h2 {
 }
 
 .navbar,
-.body,
+body,
 .btn:hover {
   background-color: #21594e;
 }
@@ -22,18 +22,14 @@ h2 {
   color: #ffffff;
 }
 
-.btn:hover {
-  color: #ffffff;
-}
-
 .card-body {
   height: 80px;
   justify-content: space-between;
 }
 
 .dino-img {
-  height: 100%;
-  width: auto;
+  min-height: 250px;
+  min-width: 250px;
 }
 
 .row {

@@ -9,7 +9,7 @@ h2 {
 }
 
 .navbar,
-.body,
+body,
 .btn:hover {
   background-color: $darkGreen;
 }
@@ -27,31 +27,14 @@ h2 {
   color: #ffffff;
 }
 
-.btn:hover {
-  color: #ffffff;
-}
-
 .card-body {
   height: 80px;
   justify-content: space-between;
 }
 
-//@mixin dino-imgs {
-//  @if height > width {
-//    height: auto;
-//    width: 100%;
-//  } @else {
-//    height: 100%;
-//    width: auto;
-//  }
-//}
-
 .dino-img {
-  height: 100%;
-  width: auto;
-  //height: auto;
-  //width: 100%;
-  //@include dino-imgs;
+  min-height: 250px;
+  min-width: 250px;
 }
 
 .row {
