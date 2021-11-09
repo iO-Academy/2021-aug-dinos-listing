@@ -4,25 +4,24 @@ h2 {
 
 body,
 .btn:hover,
-.btn:focus {
-  background-color: #21594e;
+.btn:focus{
+  background-color: $darkGreen;
 }
 
 .card {
-  background-color: #d9ed14;
-  color: #21594e;
+  background-color: $limeGreen;
+  color: $darkGreen;
 }
 
 .btn {
-  background-color: #a31423;
+  background-color: $red;
   color: #ffffff;
 }
 
-.btn:hover {
+.btn:hover{
   color: #ffffff;
 }
-
-.btn:focus {
+.btn:focus{
   color: #ffffff;
 }
 
@@ -40,18 +39,8 @@ body,
   width: 250px;
   height: 250px;
   overflow: hidden;
-  border: 1px solid #21594e;
+  border: 1px solid $darkGreen;
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
 }
-
-.navbar {
-  background-color: #21594e;
-}
-
-.navbar {
-  color: #d9ed14;
-}
-
-/*# sourceMappingURL=style.css.map */

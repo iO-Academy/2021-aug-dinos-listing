@@ -1,58 +1,6 @@
-$darkGreen: #21594e;
-$green: #3db14c;
-$limeGreen: #d9ed14;
-$yellow: #fef97a;
-$red: #a31423;
+@import "Imports/variables";
+@import "Imports/museum";
+@import "Imports/navbar";
 
-h2 {
-  font-size: 22px;
-}
 
-.navbar,
-body,
-.btn:hover,
-.btn:focus{
-  background-color: $darkGreen;
-}
-
-.navbar {
-  color: $limeGreen;
-}
-
-.card {
-  background-color: $limeGreen;
-  color: $darkGreen;
-}
-
-.btn {
-  background-color: $red;
-  color: #ffffff;
-}
-
-.btn:hover{
-  color: #ffffff;
-}
-.btn:focus{
-  color: #ffffff;
-}
-
-.card-body {
-  height: 80px;
-  justify-content: space-between;
-}
-
-.row {
-  margin-right: 0;
-}
-
-.dino-img-container {
-  position: relative;
-  width: 250px;
-  height: 250px;
-  overflow: hidden;
-  border: 1px solid $darkGreen;
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: cover;
-}
 
