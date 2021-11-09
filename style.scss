@@ -10,7 +10,8 @@ h2 {
 
 .navbar,
 body,
-.btn:hover {
+.btn:hover,
+.btn:focus{
   background-color: $darkGreen;
 }
 
@@ -29,6 +30,9 @@ body,
 }
 
 .btn:hover{
+  color: #ffffff;
+}
+.btn:focus{
   color: #ffffff;
 }
 

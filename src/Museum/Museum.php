@@ -23,7 +23,7 @@ class Museum
                 $output .=     '<div class="dino-img-container mx-auto dino'. $dino->getId().'"></div>';
                 $output .=     '<div class="card-body d-flex flex-row align-items-center py-5">';
                 $output .=         '<div class="food-type d-flex flex-row align-items-center">';
-                $output .=             '<img width="50px" src="Icons/' . $dino->getLogoUrl() . '"/>';
+                $output .=             '<img width="50px" alt="Icon to represent '. $dino->getFoodType().'" src="Icons/' . $dino->getLogoUrl() . '"/>';
                 $output .=             '<p class="card-text">' . $dino->getFoodType() . '</p>';
                 $output .=         '</div>';
                 $output .=         '<div class="button">';
