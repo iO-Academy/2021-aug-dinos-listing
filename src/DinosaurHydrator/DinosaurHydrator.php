@@ -41,4 +41,15 @@ class DinosaurHydrator
         // Fetches all rows which match the criteria (as opposed to fetch() which returns one row)
         return $query->fetch();
     }
+
+
+    public static function search()
+    {
+        $searchData = $_POST['searchInput'];
+        $db = new PDO('mysql:host=db;dbname=dinosaurs;', 'root', 'password');
+        $query = $db->prepare("SELECT `dinos`.`species` WHERE(category LIKE $searchData)");
+        $query->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,Dinosaur::class);
+
+    }
 }
+

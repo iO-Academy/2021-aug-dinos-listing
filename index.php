@@ -24,7 +24,7 @@ require_once 'vendor/autoload.php';
 
     <form class="w-25 d-flex flex-row ">
         <div class="form-group">
-            <input type="search" class="form-control" id="exampleFormControlInput1" placeholder="Search">
+            <input type="search" class="form-control" name="searchInput" id="exampleFormControlInput1" placeholder="Search">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
