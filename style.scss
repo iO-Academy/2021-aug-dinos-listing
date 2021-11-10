@@ -3,6 +3,11 @@ $green: #3db14c;
 $limeGreen: #d9ed14;
 $yellow: #fef97a;
 $red: #a31423;
+$white: #ffffff;
+
+* {
+  font-family: 'Sigmar One', cursive;
+}
 
 h2 {
   font-size: 22px;
@@ -20,9 +25,23 @@ body {
   min-height: 100vh;
 }
 
-.card, .displayCase {
+.card {
   background-color: $limeGreen;
   color: $darkGreen;
+}
+
+.displayCase {
+  font-size: 35px;
+  background-color: $limeGreen;
+  color: $darkGreen;
+  p {
+    text-shadow: 2px 2px $darkGreen, 2px -2px $darkGreen, -2px 2px $darkGreen, -2px -2px $darkGreen;
+    color: $yellow;
+    }
+  .stat {
+    text-shadow: 2px 2px $darkGreen, 2px -2px $darkGreen, -2px 2px $darkGreen, -2px -2px $darkGreen;
+    color: $white;
+  }
 }
 
 .btn {

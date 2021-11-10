@@ -1,3 +1,7 @@
+* {
+  font-family: "Sigmar One", cursive;
+}
+
 h2 {
   font-size: 22px;
 }
@@ -14,9 +18,23 @@ body {
   min-height: 100vh;
 }
 
-.card, .displayCase {
+.card {
   background-color: #d9ed14;
   color: #21594e;
+}
+
+.displayCase {
+  font-size: 35px;
+  background-color: #d9ed14;
+  color: #21594e;
+}
+.displayCase p {
+  text-shadow: 2px 2px #21594e, 2px -2px #21594e, -2px 2px #21594e, -2px -2px #21594e;
+  color: #fef97a;
+}
+.displayCase .stat {
+  text-shadow: 2px 2px #21594e, 2px -2px #21594e, -2px 2px #21594e, -2px -2px #21594e;
+  color: #ffffff;
 }
 
 .btn {
