@@ -29,6 +29,8 @@ function checkIfSearched(PDO $db): string {
 function searchedValue(): string {
     if (isset($_POST['submit'])) {
         return $_POST['search'];
+    } else {
+        return '';
     }
 }
 
