@@ -44,7 +44,7 @@ class DinosaurHydrator
      * table with a left join and returning in an array
      * @param PDO $db
      * @param string $search
-     * @return Dinosaur
+     * @return Array
      */
     public static function getSearchedDinos(PDO $db, string $search): Array
     {
