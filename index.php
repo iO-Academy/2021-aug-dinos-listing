@@ -21,21 +21,19 @@ require_once 'vendor/autoload.php';
         <p class="h1">Website Name</p>
     </nav>
 
-    <form class="w-25 d-flex flex-row " method="post">
+    <form class="w-25 d-flex flex-row" method="post">
         <div class="form-group">
             <input type="search" class="form-control" name="searchInput" id="exampleFormControlInput1" placeholder="
             <?php
-                if(!$_POST['submit']){
+                if(!isset($_POST['submit'])){
                     echo 'Search';
                 } else {
                     echo $_POST['search'];
                 }
             ?>">
-}
-                }
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <button type="reset" class="btn btn-primary">Clear Search</button>
+        <button type="submit" class="btn w-25">Submit</button>
+        <button type="reset" class="btn w-25">Clear</button>
     </form>
 
 
