@@ -21,12 +21,21 @@ require_once 'vendor/autoload.php';
         <p class="h1">Website Name</p>
     </nav>
 
-
-    <form class="w-25 d-flex flex-row ">
+    <form class="w-25 d-flex flex-row " method="post">
         <div class="form-group">
-            <input type="search" class="form-control" name="searchInput" id="exampleFormControlInput1" placeholder="Search">
+            <input type="search" class="form-control" name="searchInput" id="exampleFormControlInput1" placeholder="
+            <?php
+                if(!$_POST['submit']){
+                    echo 'Search';
+                } else {
+                    echo $_POST['search'];
+                }
+            ?>">
+}
+                }
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="reset" class="btn btn-primary">Clear Search</button>
     </form>
 
 
@@ -34,7 +43,7 @@ require_once 'vendor/autoload.php';
         <?php
         if(isset($_POST['submit'])) {
             echo "<meta http-equiv='refresh' content='0'>";
-            echo Museum::displayAllDinos(DinosaurHydrator::search());
+            echo Museum::displayAllDinos(DinosaurHydrator::getSearchedDinos());
         }else {
             echo Museum::displayAllDinos(DinosaurHydrator::getAllDinos());
         }
