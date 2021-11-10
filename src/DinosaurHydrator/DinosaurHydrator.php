@@ -27,7 +27,7 @@ class DinosaurHydrator
      * @param int $id
      * @return
      */
-    public static function getDino(PDO $db, int $id)
+    public static function getDino(PDO $db, int $id): ?Dinosaur
     {
         // Prepares (/stores) the criteria for data we want to retrieve from the db
         $query = $db->prepare('SELECT `dinos`.`id`, `dinos`.`species`, `foodTypes`.`name`  AS `foodType`, `dinos`.`height`, `dinos`.`weight`, `dinos`.`length`, `dinos`.`killerRating`, `dinos`.`intelligence`, `dinos`.`age`, `dinos`.`imageUrl`, `foodTypes`.`imageUrl` AS `logoUrl` FROM `dinos` INNER JOIN `foodTypes` ON `dinos`.`foodType` = `foodTypes`.`id` WHERE `dinos`.`id` = :id;');
@@ -38,8 +38,7 @@ class DinosaurHydrator
         $result = $query->fetch();
         if ($result) {
             return $result;
-        } else {
-            return "We couldn't find your dinosaur!";
         }
+        return null;
     }
 }
