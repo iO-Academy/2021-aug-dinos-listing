@@ -49,6 +49,7 @@ class DinosaurHydrator
         $db = new PDO('mysql:host=db;dbname=dinosaurs;', 'root', 'password');
         $query = $db->prepare("SELECT `dinos`.`species` WHERE(category LIKE $searchData)");
         $query->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,Dinosaur::class);
+        return $query->fetch();
 
     }
 }

@@ -32,7 +32,12 @@ require_once 'vendor/autoload.php';
 
     <div class="row row-cols-sm-1 row-cols-md-2 row-cols-xl-3 justify-content-center">
         <?php
-        echo Museum::displayAllDinos(DinosaurHydrator::getAllDinos());
+        if(isset($_POST['submit'])) {
+            echo "<meta http-equiv='refresh' content='0'>";
+            echo Museum::displayAllDinos(DinosaurHydrator::search());
+        }else {
+            echo Museum::displayAllDinos(DinosaurHydrator::getAllDinos());
+        }
         ?>
     </div>
 </body>
