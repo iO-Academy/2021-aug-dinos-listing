@@ -1,18 +1,57 @@
-/* Error: expected "{".
- *    ,
- * 39 | <<<<<<< HEAD:style.scss
- *    |                        ^
- *    '
- *   SCSS/Imports/_museum.scss 39:24  @import
- *   SCSS/style.scss 2:9              root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: 'Error: expected "{".\a    \2577 \a 39 \2502  <<<<<<< HEAD:style.scss\a    \2502                         ^\a    \2575 \a   SCSS/Imports/_museum.scss 39:24  @import\a   SCSS/style.scss 2:9              root stylesheet';
+h2 {
+  font-size: 22px;
 }
+
+body,
+.btn:hover,
+.btn:focus {
+  background-color: #21594e;
+}
+
+.card {
+  background-color: #d9ed14;
+  color: #21594e;
+}
+
+.btn {
+  background-color: #a31423;
+  color: #ffffff;
+}
+
+.btn:hover {
+  color: #ffffff;
+}
+
+.btn:focus {
+  color: #ffffff;
+}
+
+.card-body {
+  height: 80px;
+  justify-content: space-between;
+}
+
+.dino-img-container {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  border: 1px solid #21594e;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+}
+
+.form-group {
+  height: 50px;
+}
+
+.navbar {
+  background-color: #21594e;
+}
+
+.navbar {
+  color: #d9ed14;
+}
+
+/*# sourceMappingURL=style.css.map */

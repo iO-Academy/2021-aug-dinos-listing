@@ -36,15 +36,12 @@ body,
   height: 250px;
   overflow: hidden;
   border: 1px solid $darkGreen;
-<<<<<<< HEAD:style.scss
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
 }
 
 .form-group {
   height: 50px;
 }
-=======
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: cover;
-}
->>>>>>> main:SCSS/Imports/_museum.scss
+
