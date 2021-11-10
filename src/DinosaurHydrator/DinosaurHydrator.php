@@ -53,7 +53,7 @@ class DinosaurHydrator
     public static function getSearchedDinos(PDO $db, string $search, string $filter = ''): Array
     {
         // Prepares (/stores) the criteria for data we want to retrieve from the db
-        if (trim($filter) !== ''){
+        if (trim($filter) !== '0'){
             $query = $db->prepare("SELECT `dinos`.`id`, `dinos`.`species`, `foodTypes`.`name` AS `foodType`, `dinos`.`height`, `dinos`.`weight`, `dinos`.`length`, `dinos`.`killerRating`, `dinos`.`intelligence`, `dinos`.`age`, `dinos`.`imageUrl`, `foodTypes`.`imageUrl` AS `logoUrl` FROM `dinos` INNER JOIN `foodTypes` ON `dinos`.`foodType` = `foodTypes`.`id` WHERE `dinos`.`species` LIKE :search AND `foodTypes`.`name` = :filter;");
             $query->execute([':search' => '%' . trim($search) . '%', ':filter' => trim($filter)]);
         } else {

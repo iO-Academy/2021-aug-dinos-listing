@@ -15,7 +15,7 @@ $db = new PDO('mysql:host=db;dbname=dinosaurs;', 'root', 'password');
  */
 function checkIfSearched(PDO $db): string {
     if (isset($_GET['submit'])) {
-        return Museum::displayAllDinos(DinosaurHydrator::getSearchedDinos($db, $_GET['search']));
+        return Museum::displayAllDinos(DinosaurHydrator::getSearchedDinos($db, $_GET['search'], $_GET['filter']));
     } else {
         return Museum::displayAllDinos(DinosaurHydrator::getAllDinos($db));
     }
@@ -60,10 +60,17 @@ $searchedValue = searchedValue();
 
     <div class="col">
         <div class="row justify-content-center">
-            <form class="d-flex flex-row" action="">
+            <form class="d-flex flex-row align-items-center" action="">
                 <input name="search" type="search" class="form-control m-2" id="search" placeholder="<?php echo $searchedValue; ?>">
+                <select name="filter" class="btn m-1">
+                    <option value="0">Filter by Food Type</option>
+                    <option value="Herbivore">Herbivore</option>
+                    <option value="Omnivore">Omnivore</option>
+                    <option value="Carnivore">Carnivore</option>
+                </select>
                 <input name="submit" type="submit" class="btn m-1" value="Search" aria-label="Search"/>
                 <input id="reset" name="submit" type="submit" class="btn m-1" value="Clear" aria-label="Clear"/>
+
             </form>
         </div>
 
