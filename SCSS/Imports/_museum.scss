@@ -1,32 +1,15 @@
-h2 {
-  font-size: 22px;
-}
-
-body,
-.btn:hover,
-.btn:focus{
-  background-color: $darkGreen;
-}
-
 .card {
   background-color: $limeGreen;
   color: $darkGreen;
+  border-radius: 10px;
 }
 
-.btn {
-  background-color: $red;
-  color: #ffffff;
-}
-
-.btn:hover{
-  color: #ffffff;
-}
-.btn:focus{
-  color: #ffffff;
+.mainPage h2 {
+  font-size: calc(22px + 0.3vw);
+  height: 60px;
 }
 
 .card-body {
-  height: 80px;
   justify-content: space-between;
 }
 
@@ -40,3 +23,22 @@ body,
   background-position: center top;
   background-size: cover;
 }
+
+.form-group {
+  height: 50px;
+}
+
+.form-control {
+  width: 60% !important;
+}
+
+.btn:hover,
+.btn:focus{
+  color: $yellow;
+}
+
+.btn {
+  background-color: $red;
+  color: #ffffff;
+}
+
