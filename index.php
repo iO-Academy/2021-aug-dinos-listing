@@ -59,8 +59,8 @@ $searchedValue = searchedValue();
         <div class="row justify-content-center">
             <form class="d-flex flex-row" method="post" action="">
                 <input name="search" type="search" class="form-control m-2" id="search" placeholder="<?php echo $searchedValue; ?>">
-                <input name="submit" type="submit" class="btn m-1" value="Search"/>
-                <input id="reset" name="submit" type="submit" class="btn m-1" value="Clear"/>
+                <input name="submit" type="submit" class="btn m-1" value="Search" aria-label="Search"/>
+                <input id="reset" name="submit" type="submit" class="btn m-1" value="Clear" aria-label="Clear"/>
             </form>
         </div>
 
