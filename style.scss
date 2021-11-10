@@ -2,6 +2,7 @@ $darkGreen: #21594e;
 $green: #3db14c;
 $limeGreen: #d9ed14;
 $yellow: #fef97a;
+$orange: #ED9B40;
 $red: #a31423;
 $white: #ffffff;
 
@@ -10,7 +11,7 @@ $white: #ffffff;
 }
 
 h2 {
-  font-size: 22px;
+  font-size: calc(22px + 0.3vw);
 }
 
 .navbar,
@@ -31,17 +32,28 @@ body {
 }
 
 .displayCase {
-  font-size: 35px;
+  font-size: calc(30px +  0.3vw);
   background-color: $limeGreen;
   color: $darkGreen;
   p {
-    text-shadow: 2px 2px $darkGreen, 2px -2px $darkGreen, -2px 2px $darkGreen, -2px -2px $darkGreen;
-    color: $yellow;
+    color: $darkGreen;
     }
   .stat {
     text-shadow: 2px 2px $darkGreen, 2px -2px $darkGreen, -2px 2px $darkGreen, -2px -2px $darkGreen;
     color: $white;
   }
+}
+
+#homeButton {
+  background: #8FA998;
+  border-width: 30px;
+  border-color: $darkGreen;
+  border-radius: 10px;
+  padding-inline: 20px;
+  padding-block: 1px;
+  color: $white;
+  text-shadow: 2px 2px $red;
+  text-decoration: none;
 }
 
 .btn {

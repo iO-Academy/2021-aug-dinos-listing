@@ -40,10 +40,10 @@ class Museum
     {
         $output = '<div class="container displayCase p-4">';
         $output .=     '<div class="row">';
-        $output .=          '<div class="col">';
+        $output .=          '<div class="col-lg row-sm">';
         $output .=              '<img class="w-100 img01" alt="Image of a ' . $dino->getSpecies() . '" src="' . $dino->getImageUrl() . '" />';
         $output .=          '</div>';
-        $output .=          '<div class="col-6">';
+        $output .=          '<div class="col-lg row-sm">';
         $output .=              '<div class="">';
         $output .=                  '<h1 class="text-center">' . $dino->getSpecies() . '</h1>';
         $output .=                  '<div class="d-flex justify-content-center">';
@@ -76,10 +76,10 @@ class Museum
         $output .=                          '<p class="stat">' . $dino->getAge() . ' million years ago</p>';
         $output .=                       '</div>';
         $output .=                  '</div>';
-        $output .=                  '<a href="index.php">Go Home</a>';
         $output .=              '</div>';
         $output .=         '</div>';
         $output .=     '</div>';
+        $output .=                  '<div class="row justify-content-center"><a href="index.php" aria-label="button"><button id="homeButton">Go Home</button></a></div>';
         $output .= '</div>';
         return $output;
     }

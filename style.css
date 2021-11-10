@@ -3,7 +3,7 @@
 }
 
 h2 {
-  font-size: 22px;
+  font-size: calc(22px + 0.3vw);
 }
 
 .navbar,
@@ -24,17 +24,28 @@ body {
 }
 
 .displayCase {
-  font-size: 35px;
+  font-size: calc(30px + 0.3vw);
   background-color: #d9ed14;
   color: #21594e;
 }
 .displayCase p {
-  text-shadow: 2px 2px #21594e, 2px -2px #21594e, -2px 2px #21594e, -2px -2px #21594e;
-  color: #fef97a;
+  color: #21594e;
 }
 .displayCase .stat {
   text-shadow: 2px 2px #21594e, 2px -2px #21594e, -2px 2px #21594e, -2px -2px #21594e;
   color: #ffffff;
+}
+
+#homeButton {
+  background: #8FA998;
+  border-width: 30px;
+  border-color: #21594e;
+  border-radius: 10px;
+  padding-inline: 20px;
+  padding-block: 1px;
+  color: #ffffff;
+  text-shadow: 2px 2px #a31423;
+  text-decoration: none;
 }
 
 .btn {
