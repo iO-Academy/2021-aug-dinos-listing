@@ -14,8 +14,8 @@ $db = new PDO('mysql:host=db;dbname=dinosaurs;', 'root', 'password');
  * @return string of dinos to be displayed
  */
 function checkIfSearched(PDO $db): string {
-    if (isset($_POST['submit'])) {
-        return Museum::displayAllDinos(DinosaurHydrator::getSearchedDinos($db, $_POST['search']));
+    if (isset($_GET['submit'])) {
+        return Museum::displayAllDinos(DinosaurHydrator::getSearchedDinos($db, $_GET['search']));
     } else {
         return Museum::displayAllDinos(DinosaurHydrator::getAllDinos($db));
     }
@@ -27,8 +27,8 @@ function checkIfSearched(PDO $db): string {
  * @return string
  */
 function searchedValue(): string {
-    if (isset($_POST['submit'])) {
-        return $_POST['search'];
+    if (isset($_GET['submit'])) {
+        return $_GET['search'];
     } else {
         return '';
     }
@@ -59,7 +59,7 @@ $searchedValue = searchedValue();
 
     <div class="col">
         <div class="row justify-content-center">
-            <form class="d-flex flex-row" method="post" action="">
+            <form class="d-flex flex-row" method="get" action="">
                 <input name="search" type="search" class="form-control m-2" id="search" placeholder="<?php echo $searchedValue; ?>">
                 <input name="submit" type="submit" class="btn m-1" value="Search" aria-label="Search"/>
                 <input id="reset" name="submit" type="submit" class="btn m-1" value="Clear" aria-label="Clear"/>
