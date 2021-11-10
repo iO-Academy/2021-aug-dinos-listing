@@ -9,6 +9,7 @@ class DinosaurHydrator
 {
     /** Connects the database and fetches all dinosaur information, appending the foodType
      * table with a left join and returning in an array
+     * @param PDO $db
      * @return Array
      */
     public static function getAllDinos(PDO $db) : Array
@@ -24,6 +25,7 @@ class DinosaurHydrator
 
     /** Connects the database and fetches one dinosaurs information, appending the foodType
      * table with a left join and returning a Dinosaur object
+     * @param PDO $db
      * @param int $id
      * @return Dinosaur
      */
@@ -38,6 +40,12 @@ class DinosaurHydrator
         return $query->fetch();
     }
 
+    /** Connects the database and fetches all dinosaur information based on a given search string, appending the foodType
+     * table with a left join and returning in an array
+     * @param PDO $db
+     * @param string $search
+     * @return Dinosaur
+     */
     public static function getSearchedDinos(PDO $db, string $search): Array
     {
         // Prepares (/stores) the criteria for data we want to retrieve from the db
