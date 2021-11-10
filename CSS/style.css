@@ -46,11 +46,12 @@ body,
   height: 50px;
 }
 
-.navbar {
-  background-color: #21594e;
+.form-control {
+  width: 60% !important;
 }
 
 .navbar {
+  background-color: #21594e;
   color: #d9ed14;
 }
 

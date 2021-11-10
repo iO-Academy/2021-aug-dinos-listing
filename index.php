@@ -24,31 +24,25 @@ $db = new PDO('mysql:host=db;dbname=dinosaurs;', 'root', 'password');
         <h1>Capynotasaurus</h1>
     </nav>
 
-    <form class="w-25 d-flex flex-row" method="post">
-        <div class="form-group">
-            <input type="search" class="form-control" name="searchInput" id="exampleFormControlInput1" placeholder="
-            <?php
-                if(!isset($_POST['submit'])){
-                    echo 'Search';
-                } else {
-                    echo $_POST['search'];
-                }
-            ?>">
+    <div class="col">
+        <div class="row ml-5">
+            <form class="d-flex flex-row" method="post">
+                <input type="search" class="form-control m-2" name="searchInput" id="searchBar" placeholder="<?php if(!isset($_POST['submit'])){echo 'Search';} else {echo $_POST['search'];} ?>">
+                <button type="submit" class="btn m-1">Submit</button>
+                <button type="reset" class="btn m-1">Clear</button>
+            </form>
         </div>
-        <button type="submit" class="btn w-25">Submit</button>
-        <button type="reset" class="btn w-25">Clear</button>
-    </form>
 
-
-    <div class="row row-cols-sm-1 row-cols-md-2 row-cols-xl-3 justify-content-center">
-        <?php
-        if(isset($_POST['submit'])) {
-            echo "<meta http-equiv='refresh' content='0'>";
-            echo Museum::displayAllDinos(DinosaurHydrator::getSearchedDinos());
-        }else {
-            echo Museum::displayAllDinos(DinosaurHydrator::getAllDinos($db));
-        }
-        ?>
+        <div class="row justify-content-center">
+            <?php
+                if(isset($_POST['submit'])) {
+                    echo "<meta http-equiv='refresh' content='0'>";
+                    echo Museum::displayAllDinos(DinosaurHydrator::getSearchedDinos($db));
+                }else {
+                    echo Museum::displayAllDinos(DinosaurHydrator::getAllDinos($db));
+                }
+            ?>
+        </div>
     </div>
 </body>
 </html>
