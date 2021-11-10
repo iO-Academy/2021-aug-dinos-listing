@@ -23,4 +23,10 @@ class DinosaurHydratorTest extends TestCase {
             'Function interacts with database and cannot be unit tested'
         );
     }
+    public function testGetSearchedDinos()
+    {
+        $this->markTestSkipped(
+            'Function interacts with database and cannot be unit tested'
+        );
+    }
 }
