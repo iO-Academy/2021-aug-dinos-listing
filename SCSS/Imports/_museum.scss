@@ -1,29 +1,27 @@
-$darkGreen: #21594e;
-$green: #3db14c;
-$limeGreen: #d9ed14;
-$yellow: #fef97a;
-$red: #a31423;
-
 h2 {
   font-size: 22px;
 }
 
-.navbar,
 body,
-.btn:hover {
+.btn:hover,
+.btn:focus{
   background-color: $darkGreen;
-}
-
-.navbar {
-  color: $limeGreen;
 }
 
 .card {
   background-color: $limeGreen;
   color: $darkGreen;
 }
- .btn {
+
+.btn {
   background-color: $red;
+  color: #ffffff;
+}
+
+.btn:hover{
+  color: #ffffff;
+}
+.btn:focus{
   color: #ffffff;
 }
 
@@ -32,23 +30,21 @@ body,
   justify-content: space-between;
 }
 
-.dino-img {
-  min-height: 250px;
-  min-width: 250px;
-}
-
-.row {
-  margin-right: 0;
-}
-
 .dino-img-container {
   position: relative;
   width: 250px;
   height: 250px;
   overflow: hidden;
   border: 1px solid $darkGreen;
+<<<<<<< HEAD:style.scss
 }
 
 .form-group {
   height: 50px;
 }
+=======
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+}
+>>>>>>> main:SCSS/Imports/_museum.scss

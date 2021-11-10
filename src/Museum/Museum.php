@@ -3,7 +3,6 @@
 namespace DinoApp\Museum;
 
 use DinoApp\Dinosaur\Dinosaur;
-use DinoApp\FoodIcon\FoodIcon;
 
 class Museum
 {
@@ -16,24 +15,28 @@ class Museum
     public static function displayAllDinos(array $dinos) :string
     {
         $output='';
-        foreach ($dinos as $dino){
-            if($dino instanceof Dinosaur){
-                $output .= '<div class="card m-4" style="width: 18rem;">';
-                $output .=     '<h2 class="card-title text-center mt-3">' . $dino->getSpecies() . '</h2>';
-                $output .=     '<div class="dino-img-container mx-auto">';
-                $output .=          '<img class="dino-img" alt="Image of a ' . $dino->getSpecies() . '" src="' . $dino->getImageUrl() .'"/>';
-                $output .=      '</div>';
-                $output .=     '<div class="card-body d-flex flex-row align-items-center py-5">';
-                $output .=         '<div class="food-type d-flex flex-row">';
-                $output .=             '<img width="30px src="' . FoodIcon::getIconUrl($dino->getFoodType()) . '"/>';
-                $output .=             '<p class="card-text">' . $dino->getFoodType() . '</p>';
-                $output .=         '</div>';
-                $output .=         '<div class="button">';
-                $output .=              '<a href="#" class="btn">More info</a>';
-                $output .=         '</div>';
-                $output .=     '</div>';
-                $output .= '</div>';
+        if($dinos){
+            foreach ($dinos as $dino){
+                if($dino instanceof Dinosaur){
+                    $output .= '<div class="card m-4" style="width: 18rem;">';
+                    $output .=     '<h2 class="card-title text-center mt-3">' . $dino->getSpecies() . '</h2>';
+                    $output .=     '<div class="dino-img-container mx-auto" style="background-image: url(' . $dino->getImageUrl() .');"></div>';
+                    $output .=     '<div class="card-body d-flex flex-row align-items-center py-5">';
+                    $output .=         '<div class="food-type d-flex flex-row align-items-center">';
+                    $output .=             '<img width="50px" alt="Icon to represent '. $dino->getFoodType().'" src="Icons/' . $dino->getLogoUrl() . '"/>';
+                    $output .=             '<p class="card-text">' . $dino->getFoodType() . '</p>';
+                    $output .=         '</div>';
+//                    $output .=         '<div class="button">';
+//                    $output .=              '<a href="#" class="btn">More info</a>';
+//                    $output .=         '</div>';
+                    $output .=     '</div>';
+                    $output .= '</div>';
+                }else{
+                    $output .= 'This is not a Dinosaur :(. <br>';
+                }
             }
+        }else{
+            $output .= "Sorry the Dinosaurs are all extinct :'(";
         }
         return $output;
     }

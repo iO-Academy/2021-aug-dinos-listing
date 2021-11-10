@@ -14,32 +14,36 @@ class Dinosaur
     protected int $intelligence;
     protected int $age;
     protected string $imageUrl;
+    protected string $logoUrl;
 
-//    /** Class Constructor made for the purposes of unit testing
-//     * @param int $id
-//     * @param string $species
-//     * @param string $foodType
-//     * @param float $height
-//     * @param float $weight
-//     * @param float $length
-//     * @param int $killerRating
-//     * @param int $intelligence
-//     * @param int $age
-//     * @param string $imageUrl
-//     */
-//    public function __construct(int $id, string $species, string $foodType, float $height, float $weight, float $length, int $killerRating, int $intelligence, int $age, string $imageUrl)
-//    {
-//        $this->id = $id;
-//        $this->species = $species;
-//        $this->foodType = $foodType;
-//        $this->height = $height;
-//        $this->weight = $weight;
-//        $this->length = $length;
-//        $this->killerRating = $killerRating;
-//        $this->intelligence = $intelligence;
-//        $this->age = $age;
-//        $this->imageUrl = $imageUrl;
-//    }
+
+    /** Class Constructor made for the purposes of unit testing
+     * @param int $id
+     * @param string $species
+     * @param string $foodType
+     * @param float $height
+     * @param float $weight
+     * @param float $length
+     * @param int $killerRating
+     * @param int $intelligence
+     * @param int $age
+     * @param string $imageUrl
+     * @param string $logoUrl
+     */
+    public function __construct(int $id = 0, string $species = '', string $foodType = '', float $height = 0, float $weight = 0, float $length = 0, int $killerRating = 0, int $intelligence = 0, int $age = 0, string $imageUrl ='', string $logoUrl = '')
+    {
+        $this->id = $id;
+        $this->species = $species;
+        $this->foodType = $foodType;
+        $this->height = $height;
+        $this->weight = $weight;
+        $this->length = $length;
+        $this->killerRating = $killerRating;
+        $this->intelligence = $intelligence;
+        $this->age = $age;
+        $this->imageUrl = $imageUrl;
+        $this->logoUrl = $logoUrl;
+    }
 
     // Getters
 
@@ -112,6 +116,15 @@ class Dinosaur
     public function getImageUrl(): string
     {
         return $this->imageUrl;
+    }
+
+    /**
+     * Returns the logoUrl of the dinosaur
+     * @return string
+     */
+    public function getLogoUrl(): string
+    {
+        return $this->logoUrl;
     }
 }
 
