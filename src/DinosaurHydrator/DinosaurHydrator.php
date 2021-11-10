@@ -25,9 +25,9 @@ class DinosaurHydrator
     /** Connects the database and fetches one dinosaur information, appending the foodType
      * table with a left join and returning a Dinosaur object
      * @param int $id
-     * @return Dinosaur
+     * @return
      */
-    public static function getDino(PDO $db, int $id) : Dinosaur
+    public static function getDino(PDO $db, int $id)
     {
         // Prepares (/stores) the criteria for data we want to retrieve from the db
         $query = $db->prepare('SELECT `dinos`.`id`, `dinos`.`species`, `foodTypes`.`name`  AS `foodType`, `dinos`.`height`, `dinos`.`weight`, `dinos`.`length`, `dinos`.`killerRating`, `dinos`.`intelligence`, `dinos`.`age`, `dinos`.`imageUrl`, `foodTypes`.`imageUrl` AS `logoUrl` FROM `dinos` INNER JOIN `foodTypes` ON `dinos`.`foodType` = `foodTypes`.`id` WHERE `dinos`.`id` = :id;');
@@ -35,6 +35,11 @@ class DinosaurHydrator
         // Sets the fetch mode (what format we get the data returned in) to the class of Dinosaur
         $query->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, Dinosaur::class);
         // Fetches the row which matches the criteria
-        return $query->fetch();
+        $result = $query->fetch();
+        if ($result) {
+            return $result;
+        } else {
+            return "We couldn't find your dinosaur!";
+        }
     }
 }

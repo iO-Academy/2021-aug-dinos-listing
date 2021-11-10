@@ -27,7 +27,7 @@ $db = new PDO('mysql:host=db;dbname=dinosaurs;', 'root', 'password');
         <h1>Capynotasaurus</h1>
     </nav>
 
-    <div class="row row-cols-sm-1 row-cols-md-2 row-cols-xl-3 justify-content-center align-items-center">
+    <div class="row row-cols-sm-1 row-cols-md-2 row-cols-xl-3 justify-content-center align-items-center mainPage">
         <?php
         echo Museum::displayAllDinos(DinosaurHydrator::getAllDinos($db));
         ?>

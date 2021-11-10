@@ -29,7 +29,16 @@ $db = new PDO('mysql:host=db;dbname=dinosaurs;', 'root', 'password');
 
     <div class="body row g-0 m-4 justify-content-center">
             <?php
-            echo Museum::displayDino(DinosaurHydrator::getDino($db, $_GET['id']));
+            if ($_GET['id']) {
+                $dino = DinosaurHydrator::getDino($db, $_GET['id']);
+                if ($dino instanceof \DinoApp\Dinosaur\Dinosaur) {
+                    echo Museum::displayDino($dino);
+                } else {
+                    echo "<div class='d-flex flex-column align-items-center'><p style='font-size: 50px; color: #FFFFFF'>Your dinosaur couldn't be found!</p><a href='index.php' tabindex='-1'><button class='button'>Go Home</button></a></div>";
+                }
+            } else {
+                echo "<div class='d-flex flex-column align-items-center'><p style='font-size: 50px; color: #FFFFFF'>Your dinosaur has escaped!</p><a href='index.php' tabindex='-1'><button class='button'>Go Home</button></a></div>";
+            }
             ?>
     </div>
 </body>
