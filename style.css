@@ -4,13 +4,13 @@
 
 h2 {
   font-size: calc(22px + 0.3vw);
+  height: 60px;
 }
 
 .navbar,
-body,
-.btn:hover,
-.btn:focus {
+body {
   background-color: #21594e;
+  color: #d9ed14;
 }
 
 body {
@@ -25,6 +25,7 @@ body {
 
 .displayCase {
   font-size: calc(30px + 0.3vw);
+  border-radius: 10px;
   background-color: #d9ed14;
   color: #21594e;
 }
@@ -36,9 +37,9 @@ body {
   color: #ffffff;
 }
 
-#homeButton {
-  background: #8FA998;
+.button {
   border-width: 30px;
+  background: #8FA998;
   border-color: #21594e;
   border-radius: 10px;
   padding-inline: 20px;
@@ -46,23 +47,14 @@ body {
   color: #ffffff;
   text-shadow: 2px 2px #a31423;
   text-decoration: none;
+  margin: 10px;
 }
 
-.btn {
-  background-color: #a31423;
-  color: #ffffff;
-}
-
-.btn:hover {
-  color: #ffffff;
-}
-
-.btn:focus {
-  color: #ffffff;
+.button:focus {
+  box-shadow: 5px 5px 2px #a31423, -5px -5px 2px #a31423, 5px -5px 2px #a31423, -5px 5px 2px #a31423;
 }
 
 .card-body {
-  height: 80px;
   justify-content: space-between;
 }
 

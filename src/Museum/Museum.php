@@ -21,13 +21,13 @@ class Museum
                 $output .= '<div class="card m-4" style="width: 18rem;">';
                 $output .=     '<h2 class="card-title text-center mt-3">' . $dino->getSpecies() . '</h2>';
                 $output .=     '<div class="dino-img-container mx-auto dino'. $dino->getId().'"></div>';
-                $output .=     '<div class="card-body d-flex flex-row align-items-center py-5">';
+                $output .=     '<div class="card-body d-flex flex-column align-items-center">';
                 $output .=         '<div class="food-type d-flex flex-row align-items-center">';
                 $output .=             '<img width="50px" alt="Icon to represent '. $dino->getFoodType().'" src="Icons/' . $dino->getLogoUrl() . '"/>';
                 $output .=             '<p class="card-text">' . $dino->getFoodType() . '</p>';
                 $output .=         '</div>';
-                $output .=         '<div class="button">';
-                $output .=              '<a href="displayCase.php?id=' . $dino->getId() . '" class="btn">More info</a>';
+                $output .=         '<div>';
+                $output .=              '<a href="displayCase.php?id=' . $dino->getId() . '" tabindex="-1"><button class="button" aria-label="View more about ' . $dino->getSpecies() . '">More info</button></a>';
                 $output .=         '</div>';
                 $output .=     '</div>';
                 $output .= '</div>';
@@ -79,7 +79,11 @@ class Museum
         $output .=              '</div>';
         $output .=         '</div>';
         $output .=     '</div>';
-        $output .=                  '<div class="row justify-content-center"><a href="index.php" aria-label="button"><button id="homeButton">Go Home</button></a></div>';
+        $output .=     '<div class="row justify-content-center">';
+        $output .=         '<a href="index.php" tabindex="-1">';
+        $output .=             '<button class="button">Go Home</button>';
+        $output .=         '</a>';
+        $output .=     '</div>';
         $output .= '</div>';
         return $output;
     }
