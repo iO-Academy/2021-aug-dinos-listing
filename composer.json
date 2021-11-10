@@ -1,0 +1,11 @@
+{
+  "autoload": {
+    "psr-4": {
+      "DinoApp\\":"src/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit tests/",
+    "watch": "sass --watch SCSS/style.scss CSS/style.css"
+  }
+}
