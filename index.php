@@ -29,8 +29,6 @@ function checkIfSearched(PDO $db): string {
 function searchedValue(): string {
     if (isset($_POST['submit'])) {
         return $_POST['search'];
-    } else {
-        return "Search";
     }
 }
 
@@ -61,7 +59,7 @@ $searchedValue = searchedValue();
         <div class="row justify-content-center">
             <form class="d-flex flex-row" method="post" action="">
                 <input name="search" type="search" class="form-control m-2" id="search" placeholder="<?php echo $searchedValue; ?>">
-                <input name="submit" type="submit" class="btn m-1"/>
+                <input name="submit" type="submit" class="btn m-1" value="Search"/>
                 <input id="reset" name="submit" type="submit" class="btn m-1" value="Clear"/>
             </form>
         </div>
