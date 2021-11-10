@@ -5,6 +5,9 @@ use DinoApp\Museum\Museum;
 
 require_once 'vendor/autoload.php';
 
+// Creates a db connection
+$db = new PDO('mysql:host=db;dbname=dinosaurs;', 'root', 'password');
+
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +19,7 @@ require_once 'vendor/autoload.php';
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fruktur&family=Sigmar+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="CSS/style.css" />
 </head>
 <body>
 <nav class="navbar sticky-top justify-content-center">
@@ -26,7 +29,7 @@ require_once 'vendor/autoload.php';
 
     <div class="body row g-0 m-4 justify-content-center">
             <?php
-            echo Museum::displayDino(DinosaurHydrator::getDino($_GET['id']));
+            echo Museum::displayDino(DinosaurHydrator::getDino($db, $_GET['id']));
             ?>
     </div>
 </body>

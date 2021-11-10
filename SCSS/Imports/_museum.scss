@@ -1,0 +1,20 @@
+.card {
+  background-color: $limeGreen;
+  color: $darkGreen;
+  border-radius: 10px;
+}
+
+.card-body {
+  justify-content: space-between;
+}
+
+.dino-img-container {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  border: 1px solid $darkGreen;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+}

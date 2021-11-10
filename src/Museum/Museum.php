@@ -15,8 +15,9 @@ class Museum
     public static function displayAllDinos(array $dinos) :string
     {
         $output='';
-        foreach ($dinos as $dino){
-            if($dino instanceof Dinosaur){
+        if($dinos){
+            foreach ($dinos as $dino){
+                if($dino instanceof Dinosaur){
                 $output .= '<style> .dino'. $dino->getId().'{background-image: url(' . $dino->getImageUrl() .');} </style>';
                 $output .= '<div class="card m-4" style="width: 18rem;">';
                 $output .=     '<h2 class="card-title text-center mt-3">' . $dino->getSpecies() . '</h2>';
@@ -31,7 +32,12 @@ class Museum
                 $output .=         '</div>';
                 $output .=     '</div>';
                 $output .= '</div>';
+                }else{
+                    $output .= 'This is not a Dinosaur :(. <br>';
+                }
             }
+        }else{
+            $output .= "Sorry the Dinosaurs are all extinct :'(";
         }
         return $output;
     }
@@ -87,6 +93,5 @@ class Museum
         $output .= '</div>';
         return $output;
     }
-
 }
 
