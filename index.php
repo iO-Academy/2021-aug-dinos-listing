@@ -30,7 +30,7 @@ function searchedValue(): string {
     if (isset($_POST['submit'])) {
         return $_POST['search'];
     } else {
-        return "search";
+        return "Search";
     }
 }
 
@@ -45,6 +45,9 @@ $searchedValue = searchedValue();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Capynotasaurus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fruktur&family=Sigmar+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/style.css" />
 </head>
@@ -55,11 +58,11 @@ $searchedValue = searchedValue();
     </nav>
 
     <div class="col">
-        <div class="row ml-5">
+        <div class="row justify-content-center">
             <form class="d-flex flex-row" method="post" action="">
                 <input name="search" type="search" class="form-control m-2" id="search" placeholder="<?php echo $searchedValue; ?>">
-                <input name="submit" type="submit" class="btn m-1" />
-                <input id="reset" name="submit" type="submit" class="btn m-1" value="Clear" />
+                <input name="submit" type="submit" class="btn m-1"/>
+                <input id="reset" name="submit" type="submit" class="btn m-1" value="Clear"/>
             </form>
         </div>
 
