@@ -1,0 +1,30 @@
+* {
+  font-family: 'Sigmar One', cursive;
+}
+
+.navbar,
+body {
+  background-color: $darkGreen;
+  color: $limeGreen;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.button {
+  border-width: 30px;
+  background: $paleGreen;
+  border-color: $darkGreen;
+  border-radius: 10px;
+  padding-inline: 20px;
+  padding-block: 1px;
+  color: $white;
+  text-shadow: 2px 2px $red;
+  text-decoration: none;
+  margin: 10px;
+}
+
+.button:focus{
+  box-shadow: 5px 5px 2px $red, -5px -5px 2px $red, 5px -5px 2px $red, -5px 5px 2px $red;
+}

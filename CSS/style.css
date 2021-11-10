@@ -1,33 +1,15 @@
-h2 {
-  font-size: 22px;
-}
-
-body,
-.btn:hover,
-.btn:focus {
-  background-color: #21594e;
-}
-
 .card {
   background-color: #d9ed14;
   color: #21594e;
+  border-radius: 10px;
 }
 
-.btn {
-  background-color: #a31423;
-  color: #ffffff;
-}
-
-.btn:hover {
-  color: #ffffff;
-}
-
-.btn:focus {
-  color: #ffffff;
+.mainPage h2 {
+  font-size: calc(22px + 0.3vw);
+  height: 60px;
 }
 
 .card-body {
-  height: 80px;
   justify-content: space-between;
 }
 
@@ -48,6 +30,51 @@ body,
 
 .navbar {
   color: #d9ed14;
+}
+
+* {
+  font-family: "Sigmar One", cursive;
+}
+
+.navbar,
+body {
+  background-color: #21594e;
+  color: #d9ed14;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.button {
+  border-width: 30px;
+  background: #8FA998;
+  border-color: #21594e;
+  border-radius: 10px;
+  padding-inline: 20px;
+  padding-block: 1px;
+  color: #FFFFFF;
+  text-shadow: 2px 2px #a31423;
+  text-decoration: none;
+  margin: 10px;
+}
+
+.button:focus {
+  box-shadow: 5px 5px 2px #a31423, -5px -5px 2px #a31423, 5px -5px 2px #a31423, -5px 5px 2px #a31423;
+}
+
+.displayCase {
+  font-size: calc(30px + 0.3vw);
+  border-radius: 10px;
+  background-color: #d9ed14;
+  color: #21594e;
+}
+.displayCase p {
+  color: #21594e;
+}
+.displayCase .stat {
+  text-shadow: 2px 2px #21594e, 2px -2px #21594e, -2px 2px #21594e, -2px -2px #21594e;
+  color: #FFFFFF;
 }
 
 /*# sourceMappingURL=style.css.map */
