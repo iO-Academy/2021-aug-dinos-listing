@@ -24,17 +24,17 @@ $filterValue = filteredValue();
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/style.css" />
 </head>
-<body>
+<body class="mainPage">
     <nav class="navbar sticky-top justify-content-center">
         <img width="150px" alt="Capysaurus Logo" src="Images/CapybarasaurusLogo.gif" />
         <h1>Capynotasaurus</h1>
     </nav>
 
     <div class="col">
-        <div class="row justify-content-center">
-            <form class="d-flex flex-row align-items-center" action="">
-                <input name="search" type="search" class="form-control m-2" id="search" value="<?php echo $searchedValue; ?>">
-                <select name="filter" class="btn m-1">
+        <div class="row d-flex flex-column flex-md-row justify-content-center align-items-center">
+            <form class="d-flex flex-column flex-md-row justify-content-center" action="">
+                <input name="search" type="search" class="form-control m-1" id="search" value="<?php echo $searchedValue; ?>">
+                <select name="filter" class="btn m-1 w-sm-50">
                     <option value="">Filter by Food Type</option>
                     <option value="Herbivore" <?php if ($filterValue === 'Herbivore') { echo 'selected'; } ?> >Herbivore</option>
                     <option value="Omnivore" <?php if ($filterValue === 'Omnivore') { echo 'selected'; } ?>>Omnivore</option>
@@ -42,11 +42,10 @@ $filterValue = filteredValue();
                 </select>
                 <input name="submit" type="submit" class="btn m-1" value="Search" aria-label="Search"/>
             </form>
-            <form>
+            <form class="justify-content-center">
                 <input name="submit" type="submit" class="btn m-1" value="Clear" aria-label="Clear"/>
             </form>
         </div>
-
         <div class="row justify-content-center">
             <?php
                 echo $display;
