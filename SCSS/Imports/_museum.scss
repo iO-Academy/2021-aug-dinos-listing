@@ -4,9 +4,32 @@
   border-radius: 10px;
 }
 
-.mainPage h2 {
-  font-size: calc(22px + 0.3vw);
-  height: 60px;
+.mainPage{
+  padding-bottom: 80px ;
+  .card{
+    width: 18rem;
+  }
+  .card-text,
+  .button,
+  h2 {
+    font-size: 1.25em;
+  }
+  h2 {
+    height: auto;
+    margin:3%;
+  }
+  footer{
+    border-top: 1px solid $darkGreen;
+    background-color: $limeGreen;
+    height: 81px;
+    white-space:nowrap;
+    .button{
+      border-width: 15px;
+    }
+    p {
+      color: $darkGreen !important;
+    }
+  }
 }
 
 .card-body {
@@ -15,8 +38,7 @@
 
 .dino-img-container {
   position: relative;
-  width: 250px;
-  height: 250px;
+  width: 80%;
   overflow: hidden;
   border: 1px solid $darkGreen;
   background-repeat: no-repeat;
@@ -24,12 +46,14 @@
   background-size: cover;
 }
 
-.form-group {
-  height: 50px;
+.dino-img-container:after {
+  content: "";
+  display:block;
+  padding-bottom: 100%;
 }
 
-.form-control {
-  width: 60% !important;
+.form-group {
+  height: 50px;
 }
 
 .btn:hover,
@@ -40,6 +64,8 @@
 .btn {
   background-color: $red;
   color: #ffffff;
+  height: 50px !important;
+  padding: 10px !important;
 }
 
 .pagination{
@@ -56,3 +82,12 @@
   cursor: default;
 }
 
+@media only screen and (max-width: 768px) {
+  .mainPage {
+    padding-bottom: 100px;
+
+    footer {
+      height: 101px;
+    }
+  }
+}

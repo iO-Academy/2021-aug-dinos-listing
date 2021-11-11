@@ -61,19 +61,27 @@ class DinosaurHydrator
      * @param Curator $curator
      * @return Array
      */
-    public static function getSearchedDinos(PDO $db, string $search, Curator $curator): Array
+    public static function getSearchedDinos(PDO $db, string $search, Curator $curator, string $filter = ''): Array
     {
-        if ($curator->getShowAll()) {
-            // Prepares (/stores) the criteria for data we want to retrieve from the db
-            // If user wants to show all the dinos, do not include LIMIT to sql query
-            $mysql = 'SELECT `dinos`.`id`, `dinos`.`species`, `foodTypes`.`name` AS `foodType`, `dinos`.`height`, `dinos`.`weight`, `dinos`.`length`, `dinos`.`killerRating`, `dinos`.`intelligence`, `dinos`.`age`, `dinos`.`imageUrl`, `foodTypes`.`imageUrl` AS `logoUrl` FROM `dinos` INNER JOIN `foodTypes` ON `dinos`.`foodType` = `foodTypes`.`id` WHERE `dinos`.`species` LIKE :search;';
+        if (trim($filter) !== '') {
+            $mysql = "SELECT `dinos`.`id`, `dinos`.`species`, `foodTypes`.`name` AS `foodType`, `dinos`.`height`, `dinos`.`weight`, `dinos`.`length`, `dinos`.`killerRating`, `dinos`.`intelligence`, `dinos`.`age`, `dinos`.`imageUrl`, `foodTypes`.`imageUrl` AS `logoUrl` FROM `dinos` INNER JOIN `foodTypes` ON `dinos`.`foodType` = `foodTypes`.`id` WHERE `dinos`.`species` LIKE :search AND `foodTypes`.`name` = :filter ";
         } else {
-            // To include pagination, include LIMIT to sql query
-            $mysql = 'SELECT `dinos`.`id`, `dinos`.`species`, `foodTypes`.`name` AS `foodType`, `dinos`.`height`, `dinos`.`weight`, `dinos`.`length`, `dinos`.`killerRating`, `dinos`.`intelligence`, `dinos`.`age`, `dinos`.`imageUrl`, `foodTypes`.`imageUrl` AS `logoUrl` FROM `dinos` INNER JOIN `foodTypes` ON `dinos`.`foodType` = `foodTypes`.`id` WHERE `dinos`.`species` LIKE :search ' . $curator->getSqlLimit() .';';
+            $mysql = "SELECT `dinos`.`id`, `dinos`.`species`, `foodTypes`.`name` AS `foodType`, `dinos`.`height`, `dinos`.`weight`, `dinos`.`length`, `dinos`.`killerRating`, `dinos`.`intelligence`, `dinos`.`age`, `dinos`.`imageUrl`, `foodTypes`.`imageUrl` AS `logoUrl` FROM `dinos` INNER JOIN `foodTypes` ON `dinos`.`foodType` = `foodTypes`.`id` WHERE `dinos`.`species` LIKE :search ";
         }
+        if (!$curator->getShowAll()) {
+            // If user wants to paginate, include LIMIT to sql query
+            $mysql .= $curator->getSqlLimit();
+        }
+        // Close the mysql query
+        $mysql .= ';';
+
         // Prepares (/stores) the criteria for data we want to retrieve from the db
         $query = $db->prepare($mysql);
-        $query->execute([':search' => '%' . trim($search) . '%']);
+        if (trim($filter) !== '') {
+            $query->execute([':search' => '%' . trim($search) . '%', ':filter' => trim($filter)]);
+        } else {
+            $query->execute([':search' => '%' . trim($search) . '%']);
+        }
         // Sets the fetch mode (what format we get the data returned in) to the class of Dinosaur
         $query->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, Dinosaur::class);
         // Fetches all rows which match the criteria (as opposed to fetch() which returns one row)

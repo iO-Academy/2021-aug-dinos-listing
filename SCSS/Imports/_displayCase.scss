@@ -10,4 +10,11 @@
     text-shadow: 2px 2px $darkGreen, 2px -2px $darkGreen, -2px 2px $darkGreen, -2px -2px $darkGreen;
     color: $white;
   }
+  h1{
+    overflow-wrap: break-word;
+    font-size: 1.1em;
+  }
+  .displayCaseDino{
+    border: 1px solid $darkGreen;
+  }
 }

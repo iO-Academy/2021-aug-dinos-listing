@@ -4,9 +4,32 @@
   border-radius: 10px;
 }
 
+.mainPage {
+  padding-bottom: 80px;
+}
+.mainPage .card {
+  width: 18rem;
+}
+.mainPage .card-text,
+.mainPage .button,
 .mainPage h2 {
-  font-size: calc(22px + 0.3vw);
-  height: 60px;
+  font-size: 1.25em;
+}
+.mainPage h2 {
+  height: auto;
+  margin: 3%;
+}
+.mainPage footer {
+  border-top: 1px solid #21594e;
+  background-color: #d9ed14;
+  height: 81px;
+  white-space: nowrap;
+}
+.mainPage footer .button {
+  border-width: 15px;
+}
+.mainPage footer p {
+  color: #21594e !important;
 }
 
 .card-body {
@@ -15,8 +38,7 @@
 
 .dino-img-container {
   position: relative;
-  width: 250px;
-  height: 250px;
+  width: 80%;
   overflow: hidden;
   border: 1px solid #21594e;
   background-repeat: no-repeat;
@@ -24,12 +46,14 @@
   background-size: cover;
 }
 
-.form-group {
-  height: 50px;
+.dino-img-container:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
 }
 
-.form-control {
-  width: 60% !important;
+.form-group {
+  height: 50px;
 }
 
 .btn:hover,
@@ -40,10 +64,11 @@
 .btn {
   background-color: #a31423;
   color: #ffffff;
+  height: 50px !important;
+  padding: 10px !important;
 }
 
 .pagination .btn {
-  margin: 5px;
   font-size: calc(30px + 0.3vw);
 }
 .pagination .pageNumbers {
@@ -55,6 +80,14 @@
   cursor: default;
 }
 
+@media only screen and (max-width: 768px) {
+  .mainPage {
+    padding-bottom: 100px;
+  }
+  .mainPage footer {
+    height: 101px;
+  }
+}
 .navbar {
   background-color: #21594e;
   color: #d9ed14;
@@ -70,13 +103,17 @@ body {
   color: #d9ed14;
 }
 
+.navbar h1 {
+  font-size: calc(1.25rem + 2vw);
+}
+
 body {
   min-height: 100vh;
 }
 
 .button {
   border-width: 30px;
-  background: #8FA998;
+  background: #21594e;
   border-color: #21594e;
   border-radius: 10px;
   padding-inline: 20px;
@@ -103,6 +140,13 @@ body {
 .displayCase .stat {
   text-shadow: 2px 2px #21594e, 2px -2px #21594e, -2px 2px #21594e, -2px -2px #21594e;
   color: #FFFFFF;
+}
+.displayCase h1 {
+  overflow-wrap: break-word;
+  font-size: 1.1em;
+}
+.displayCase .displayCaseDino {
+  border: 1px solid #21594e;
 }
 
 /*# sourceMappingURL=style.css.map */
