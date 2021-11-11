@@ -5,7 +5,7 @@
 }
 
 .mainPage{
-  padding-bottom: 100px ;
+  padding-bottom: 80px ;
   .card{
     width: 18rem;
   }
@@ -19,8 +19,11 @@
     margin:3%;
   }
   footer{
+    .button{
+      border-width: 15px;
+    }
     background-color: $limeGreen;
-    height: 100px;
+    height: 81px;
   }
 }
 
