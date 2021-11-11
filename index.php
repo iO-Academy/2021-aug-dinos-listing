@@ -52,6 +52,11 @@ $filterValue = filteredValue();
             ?>
         </div>
     </div>
+    <footer class="footer row justify-content-center align-items-center fixed-bottom">
+        <a href="#" tabindex="-1">
+            <button class="button">To Top</button>
+        </a>
+    </footer>
 </body>
 </html>
 

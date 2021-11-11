@@ -4,6 +4,9 @@
   border-radius: 10px;
 }
 
+.mainPage {
+  padding-bottom: 80px;
+}
 .mainPage .card {
   width: 18rem;
 }
@@ -15,6 +18,14 @@
 .mainPage h2 {
   height: auto;
   margin: 3%;
+}
+.mainPage footer {
+  border-top: 1px solid #21594e;
+  background-color: #d9ed14;
+  height: 81px;
+}
+.mainPage footer .button {
+  border-width: 15px;
 }
 
 .card-body {
