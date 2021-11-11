@@ -66,3 +66,4 @@ class DinosaurHydrator
         return $query->fetchAll();
     }
 }
+

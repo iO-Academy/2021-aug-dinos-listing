@@ -24,11 +24,28 @@
   background-size: cover;
 }
 
-.navbar {
-  background-color: #21594e;
+.form-group {
+  height: 50px;
+}
+
+.form-control {
+  width: 60% !important;
+}
+
+.btn:hover,
+.btn:focus {
+  color: #fef97a;
+}
+
+.btn {
+  background-color: #a31423;
+  color: #ffffff;
+  height: 50px !important;
+  padding: 10px !important;
 }
 
 .navbar {
+  background-color: #21594e;
   color: #d9ed14;
 }
 
