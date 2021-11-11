@@ -29,9 +29,8 @@ function checkIfSearched(PDO $db): string {
 function searchedValue(): string {
     if (isset($_GET['submit'])) {
         return $_GET['search'];
-    } else {
-        return '';
     }
+    return '';
 }
 
 $display = checkIfSearched($db);
@@ -51,7 +50,7 @@ $searchedValue = searchedValue();
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/style.css" />
 </head>
-<body>
+<body class="mainPage">
     <nav class="navbar sticky-top justify-content-center">
         <img width="150px" alt="Capysaurus Logo" src="Images/CapybarasaurusLogo.gif" />
         <h1>Capynotasaurus</h1>
@@ -59,13 +58,14 @@ $searchedValue = searchedValue();
 
     <div class="col">
         <div class="row justify-content-center">
-            <form class="d-flex flex-row" action="">
+            <form class="d-flex flex-row flex-wrap w-75 justify-content-center align-items-center" action="">
                 <input name="search" type="search" class="form-control m-2" id="search" placeholder="<?php echo $searchedValue; ?>">
-                <input name="submit" type="submit" class="btn m-1" value="Search" aria-label="Search"/>
-                <input id="reset" name="submit" type="submit" class="btn m-1" value="Clear" aria-label="Clear"/>
+                <div>
+                    <input name="submit" type="submit" class="btn m-1" value="Search" aria-label="Search"/>
+                    <input id="reset" name="submit" type="submit" class="btn m-1" value="Clear" aria-label="Clear"/>
+                </div>
             </form>
         </div>
-
         <div class="row justify-content-center">
             <?php
                 echo $display;

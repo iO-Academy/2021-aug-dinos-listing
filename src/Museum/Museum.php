@@ -18,7 +18,7 @@ class Museum
         if($dinos){
             foreach ($dinos as $dino){
                 if($dino instanceof Dinosaur){
-                $output .= '<div class="card m-4" style="width: 18rem;">';
+                $output .= '<div class="card m-4">';
                 $output .=     '<h2 class="card-title text-center mt-3">' . $dino->getSpecies() . '</h2>';
                 $output .=     '<div class="dino-img-container mx-auto" role="img" aria-label="' . $dino->getSpecies() . ' photo" style="background-image: url(' . $dino->getImageUrl() .');"></div>';
                 $output .=     '<div class="card-body d-flex flex-column align-items-center">';
@@ -46,7 +46,7 @@ class Museum
         $output = '<div class="container displayCase p-4">';
         $output .=     '<div class="row">';
         $output .=          '<div class="col-lg row-sm">';
-        $output .=              '<img class="w-100 img01" alt="Image of a ' . $dino->getSpecies() . '" src="' . $dino->getImageUrl() . '" />';
+        $output .=              '<img class="w-100 img01 displayCaseDino" alt="Image of a ' . $dino->getSpecies() . '" src="' . $dino->getImageUrl() . '" />';
         $output .=          '</div>';
         $output .=          '<div class="col-lg row-sm">';
         $output .=              '<div class="">';
