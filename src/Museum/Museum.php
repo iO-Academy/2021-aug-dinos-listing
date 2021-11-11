@@ -3,6 +3,7 @@
 namespace DinoApp\Museum;
 
 use DinoApp\Dinosaur\Dinosaur;
+use DinoApp\Curator\Curator;
 
 class Museum
 {
@@ -90,6 +91,38 @@ class Museum
         $output .=         '</a>';
         $output .=     '</div>';
         $output .= '</div>';
+        return $output;
+    }
+
+    public static function displayPagination(Curator $curator) {
+        if ($curator->getShowAll()) {
+            $output = '<ul class="pagination">';
+            $output .= '<li>';
+            $output .= '<a href="?pageNumber=1" class="btn m-2">Show Less Dinos</a>';
+            $output .= '</li>';
+            $output .= '</ul>';
+        } else {
+            $output = '<div class="pageNumbers">Page ' . $curator->getPageNumber() . ' of ' . $curator->getTotalPages() . '</div>';
+            $output = '<ul class="pagination">';
+            $output .= '<li>';
+            if ($curator->getPageNumber() <= 1) {
+                $output .= '<a href="#" class="btn m-2 disabled">Prev</a>';
+            } else {
+                $output .= '<a href="?pageNumber=' . ($curator->getPageNumber() - 1) . '" class="btn m-2">Prev</a>';
+            }
+            $output .= '</li>';
+            $output .= '<li>';
+            $output .= '<a href="?showAll=true" class="btn m-2">Show All Dinos</a>';
+            $output .= '</li>';
+            $output .= '<li>';
+            if ($curator->getPageNumber() >= $curator->getTotalPages()) {
+                $output .= '<a href="#" class="btn m-2 disabled">Next</a>';
+            } else {
+                $output .= '<a href="?pageNumber=' . ($curator->getPageNumber() + 1) . '" class="btn m-2">Next</a>';
+            }
+            $output .= '</li>';
+            $output .= '</ul>';
+        }
         return $output;
     }
 }

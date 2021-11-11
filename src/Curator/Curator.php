@@ -18,6 +18,7 @@ class Curator
         $this->pageNumber = $_GET['pageNumber'] ?? 1;
         $this->totalPages = $this->calcTotalPages($db);
         $this->sqlLimit = $this->setSqlLimit();
+        $this->showAll = $_GET['showAll'] ?? false;
     }
 
     public function calcTotalPages($db): int
@@ -77,8 +78,16 @@ class Curator
     /**
      * @return bool
      */
-    public function isShowAll(): bool
+    public function getShowAll(): bool
     {
         return $this->showAll;
+    }
+
+    /**
+     * @return bool
+     */
+    public function toggleShowAll(): bool
+    {
+        return $this->showAll ? $this->showAll = false : $this->showAll = true;
     }
 }

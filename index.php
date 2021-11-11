@@ -18,7 +18,7 @@ $curator = new Curator($db);
  */
 function checkIfSearched(PDO $db, $curator): string {
     if (isset($_GET['submit'])) {
-        return Museum::displayAllDinos(DinosaurHydrator::getSearchedDinos($db, $_GET['search']));
+        return Museum::displayAllDinos(DinosaurHydrator::getSearchedDinos($db, $_GET['search'], $curator));
     } else {
         return Museum::displayAllDinos(DinosaurHydrator::getAllDinos($db, $curator));
     }
@@ -75,15 +75,9 @@ $searchedValue = searchedValue();
             ?>
         </div>
         <div class="pagination d-flex flex-column align-items-center">
-            <div class="pageNumbers">Page <?php echo $curator->getPageNumber() . ' of ' . $curator->getTotalPages() ?></div>
-            <ul class="pagination">
-                <li>
-                    <a href="<?php if($curator->getPageNumber() <= 1){ echo '#'; } else { echo "?pageNumber=".($curator->getPageNumber() - 1); } ?>" class="btn m-2 <?php if($curator->getPageNumber() <= 1){ echo 'disabled'; } ?>">Prev</a>
-                </li>
-                <li>
-                    <a href="<?php if($curator->getPageNumber() >= $curator->getTotalPages()){ echo '#'; } else { echo "?pageNumber=".($curator->getPageNumber() + 1); } ?>" class="btn m-2 <?php if($curator->getPageNumber() >= $curator->getTotalPages()){ echo 'disabled'; } ?>">Next</a>
-                </li>
-            </ul>
+            <?php
+                echo Museum::displayPagination($curator);
+            ?>
         </div>
     </div>
 </body>
