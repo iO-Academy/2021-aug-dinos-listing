@@ -1,39 +1,14 @@
 <?php
-use DinoApp\Museum\Museum;
-use DinoApp\DinosaurHydrator\DinosaurHydrator;
 
 require_once 'vendor/autoload.php';
+require_once 'src/functions.php';
 
 // Creates a variable which points to the correct database and gives username and password
 $db = new PDO('mysql:host=db;dbname=dinosaurs;', 'root', 'password');
 
-/**
- * Checks if the form has been submitted and if so returns the dinos from the submitted search. If not, returns all dinos
- *
- * @param PDO $db database
- * @return string of dinos to be displayed
- */
-function checkIfSearched(PDO $db): string {
-    if (isset($_GET['submit'], $_GET['search'], $_GET['filter'])) {
-        return Museum::displayAllDinos(DinosaurHydrator::getSearchedDinos($db, $_GET['search'], $_GET['filter']));
-    }
-    return Museum::displayAllDinos(DinosaurHydrator::getAllDinos($db));
-}
-
-/**
- * Checks if the form has been submitted and if so returns the value the user searched for, otherwise returns search
- *
- * @return string
- */
-function searchedValue(): string {
-    if (isset($_GET['submit'], $_GET['search'], $_GET['filter'])) {
-        return $_GET['search'];
-    }
-    return '';
-}
-
 $display = checkIfSearched($db);
 $searchedValue = searchedValue();
+$filterValue = filteredValue();
 
 ?>
 
@@ -61,9 +36,9 @@ $searchedValue = searchedValue();
                 <input name="search" type="search" class="form-control m-2" id="search" value="<?php echo $searchedValue; ?>">
                 <select name="filter" class="btn m-1">
                     <option value="">Filter by Food Type</option>
-                    <option value="Herbivore">Herbivore</option>
-                    <option value="Omnivore">Omnivore</option>
-                    <option value="Carnivore">Carnivore</option>
+                    <option value="Herbivore" <?php if ($filterValue === 'Herbivore') { echo 'selected'; } ?> >Herbivore</option>
+                    <option value="Omnivore" <?php if ($filterValue === 'Omnivore') { echo 'selected'; } ?>>Omnivore</option>
+                    <option value="Carnivore" <?php if ($filterValue === 'Carnivore') { echo 'selected'; } ?>>Carnivore</option>
                 </select>
                 <input name="submit" type="submit" class="btn m-1" value="Search" aria-label="Search"/>
             </form>
