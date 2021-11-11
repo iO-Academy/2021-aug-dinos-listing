@@ -14,15 +14,10 @@ $db = new PDO('mysql:host=db;dbname=dinosaurs;', 'root', 'password');
  * @return string of dinos to be displayed
  */
 function checkIfSearched(PDO $db): string {
-    if (isset($_GET['submit'])) {
-        if (isset($_GET['search'], $_GET['filter'])) {
-            return Museum::displayAllDinos(DinosaurHydrator::getSearchedDinos($db, $_GET['search'], $_GET['filter']));
-        } else {
-            return Museum::displayAllDinos(DinosaurHydrator::getAllDinos($db));
-        }
-    } else {
-        return Museum::displayAllDinos(DinosaurHydrator::getAllDinos($db));
+    if (isset($_GET['submit'], $_GET['search'], $_GET['filter'])) {
+        return Museum::displayAllDinos(DinosaurHydrator::getSearchedDinos($db, $_GET['search'], $_GET['filter']));
     }
+    return Museum::displayAllDinos(DinosaurHydrator::getAllDinos($db));
 }
 
 /**
@@ -31,11 +26,8 @@ function checkIfSearched(PDO $db): string {
  * @return string
  */
 function searchedValue(): string {
-    if (isset($_GET['submit'])) {
-        if (isset($_GET['search'])) {
-            return $_GET['search'];
-        }
-        return '';
+    if (isset($_GET['submit'], $_GET['search'], $_GET['filter'])) {
+        return $_GET['search'];
     }
     return '';
 }
