@@ -34,7 +34,7 @@ class Curator
     public function calcTotalPages(PDO $db): int
     {
 
-        $query = $db->prepare('SELECT COUNT(*) AS `total` FROM `dinos`;');
+        $query = $db->prepare('SELECT COUNT(`id`) AS `total` FROM `dinos`;');
         $query->execute();
         // Sets the fetch mode (what format we get the data returned in) to the class of Dinosaur
         $query->setFetchMode(PDO::FETCH_ASSOC);
