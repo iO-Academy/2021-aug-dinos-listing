@@ -23,9 +23,13 @@
   border-top: 1px solid #21594e;
   background-color: #d9ed14;
   height: 81px;
+  white-space: nowrap;
 }
 .mainPage footer .button {
   border-width: 15px;
+}
+.mainPage footer p {
+  color: #21594e !important;
 }
 
 .card-body {
@@ -64,6 +68,14 @@
   padding: 10px !important;
 }
 
+@media only screen and (max-width: 768px) {
+  .mainPage {
+    padding-bottom: 100px;
+  }
+  .mainPage footer {
+    height: 101px;
+  }
+}
 .navbar {
   background-color: #21594e;
   color: #d9ed14;
