@@ -5,8 +5,13 @@
 }
 
 .mainPage h2 {
-  font-size: calc(22px + 0.3vw);
-  height: 60px;
+  font-size: 1.25em;
+  height: auto;
+  margin:3%;
+}
+
+.mainPage h1 {
+  font-size: calc(23px + 1vw);
 }
 
 .card-body {
@@ -15,13 +20,18 @@
 
 .dino-img-container {
   position: relative;
-  width: 250px;
-  height: 250px;
+  width: 80%;
   overflow: hidden;
   border: 1px solid $darkGreen;
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
+}
+
+.dino-img-container:after {
+  content: "";
+  display:block;
+  padding-bottom: 100%;
 }
 
 .form-group {
@@ -41,4 +51,5 @@
   background-color: $red;
   color: #ffffff;
 }
+
 

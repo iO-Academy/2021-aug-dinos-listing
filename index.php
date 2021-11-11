@@ -58,7 +58,7 @@ $searchedValue = searchedValue();
 
     <div class="col">
         <div class="row justify-content-center">
-            <form class="d-flex flex-row flex-wrap mw-50" action="">
+            <form class="d-flex flex-row flex-wrap w-75 justify-content-center align-items-center" action="">
                 <input name="search" type="search" class="form-control m-2" id="search" placeholder="<?php echo $searchedValue; ?>">
                 <div>
                     <input name="submit" type="submit" class="btn m-1" value="Search" aria-label="Search"/>
