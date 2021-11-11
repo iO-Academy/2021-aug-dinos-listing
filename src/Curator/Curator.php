@@ -26,21 +26,13 @@ class Curator
         $this->showAll = $_GET['showAll'] ?? false;
     }
 
-    /** Counts the number of rows present in the database
-     * Calculates the number of pages based on totalDinos and dinosPerPage (rounded up)
-     * @param PDO $db
+    /** Calculates the number of pages based on totalDinos and dinosPerPage (rounded up)
+     * @param int $totalDinos
      * @return int
      */
-    public function calcTotalPages(PDO $db): int
+    public function calcTotalPages(int $totalDinos): int
     {
-
-        $query = $db->prepare('SELECT COUNT(`id`) AS `total` FROM `dinos`;');
-        $query->execute();
-        // Sets the fetch mode (what format we get the data returned in) to the class of Dinosaur
-        $query->setFetchMode(PDO::FETCH_ASSOC);
-        // Fetches all rows which match the criteria (as opposed to fetch() which returns one row)
-        $result = $query->fetch();
-        return ceil($result['total']/$this->numberOfDinosPerPage);
+        return ceil($totalDinos/$this->numberOfDinosPerPage);
     }
 
     /** Creates a string containing the LIMIT query to append to the sql for pagination
@@ -55,9 +47,9 @@ class Curator
     /** Uses the calcTotalPages method to set totalPages
      * @return int
      */
-    public function setTotalPages(PDO $db): void
+    public function setTotalPages(int $totalDinos): void
     {
-        $this->totalPages = $this->calcTotalPages($db);
+        $this->totalPages = $this->calcTotalPages($totalDinos);
     }
 
     /** Returns the pageNumber property

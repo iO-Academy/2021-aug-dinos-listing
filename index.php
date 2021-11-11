@@ -11,7 +11,6 @@ require_once 'src/functions.php';
 // Creates a variable which points to the correct database and gives username and password
 $db = new PDO('mysql:host=db;dbname=dinosaurs;', 'root', 'password');
 $curator = new Curator();
-$curator->setTotalPages($db);
 
 $display = checkIfSearched($db, $curator);
 $searchedValue = searchedValue();

@@ -12,9 +12,9 @@ use DinoApp\DinosaurHydrator\DinosaurHydrator;
  */
 function checkIfSearched(PDO $db, Curator $curator): string {
     if (isset($_GET['submit'], $_GET['search'], $_GET['filter'])) {
-        return Museum::displayAllDinos(DinosaurHydrator::getSearchedDinos($db, $_GET['search'], $curator, $_GET['filter']));
+        return Museum::displayAllDinos(DinosaurHydrator::getSearchedDinos($db, $_GET['search'], $curator, $_GET['filter']), $curator);
     }
-    return Museum::displayAllDinos(DinosaurHydrator::getAllDinos($db, $curator));
+    return Museum::displayAllDinos(DinosaurHydrator::getAllDinos($db, $curator), $curator);
 }
 
 /**

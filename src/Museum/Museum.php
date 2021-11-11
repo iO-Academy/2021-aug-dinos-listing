@@ -13,10 +13,11 @@ class Museum
      * @param array $dinos an array of Dinosaur objects.
      * @return string
      */
-    public static function displayAllDinos(array $dinos) :string
+    public static function displayAllDinos(array $dinos, Curator $curator) :string
     {
         $output='';
         if($dinos){
+            $curator->setTotalPages(count($dinos));
             foreach ($dinos as $dino){
                 if($dino instanceof Dinosaur){
                 $output .= '<div class="card m-4">';
