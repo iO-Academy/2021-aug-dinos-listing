@@ -10,16 +10,19 @@ class DinosaurHydrator
 {
     /** Connects the database and fetches all dinosaur information, appending the foodType
      * table with a left join and returning in an array
+     * Accounts for pagination and shows relevant results to page number as applicable
      * @param PDO $db
      * @param Curator $curator
      * @return Array
      */
     public static function getAllDinos(PDO $db, Curator $curator) : Array
     {
+        // Prepares (/stores) the criteria for data we want to retrieve from the db
         if ($curator->getShowAll()) {
-            // Prepares (/stores) the criteria for data we want to retrieve from the db
+            // If user wants to show all the dinos, do not include LIMIT to sql query
             $mysql = 'SELECT `dinos`.`id`, `dinos`.`species`, `foodTypes`.`name` AS `foodType`, `dinos`.`height`, `dinos`.`weight`, `dinos`.`length`, `dinos`.`killerRating`, `dinos`.`intelligence`, `dinos`.`age`, `dinos`.`imageUrl`, `foodTypes`.`imageUrl` AS `logoUrl` FROM `dinos` INNER JOIN `foodTypes` ON `dinos`.`foodType` = `foodTypes`.`id`';
         } else {
+            // To include pagination, include LIMIT to sql query
             $mysql = 'SELECT `dinos`.`id`, `dinos`.`species`, `foodTypes`.`name` AS `foodType`, `dinos`.`height`, `dinos`.`weight`, `dinos`.`length`, `dinos`.`killerRating`, `dinos`.`intelligence`, `dinos`.`age`, `dinos`.`imageUrl`, `foodTypes`.`imageUrl` AS `logoUrl` FROM `dinos` INNER JOIN `foodTypes` ON `dinos`.`foodType` = `foodTypes`.`id`' . $curator->getSqlLimit();
         }
         $query = $db->prepare($mysql);
@@ -62,8 +65,10 @@ class DinosaurHydrator
     {
         if ($curator->getShowAll()) {
             // Prepares (/stores) the criteria for data we want to retrieve from the db
+            // If user wants to show all the dinos, do not include LIMIT to sql query
             $mysql = 'SELECT `dinos`.`id`, `dinos`.`species`, `foodTypes`.`name` AS `foodType`, `dinos`.`height`, `dinos`.`weight`, `dinos`.`length`, `dinos`.`killerRating`, `dinos`.`intelligence`, `dinos`.`age`, `dinos`.`imageUrl`, `foodTypes`.`imageUrl` AS `logoUrl` FROM `dinos` INNER JOIN `foodTypes` ON `dinos`.`foodType` = `foodTypes`.`id` WHERE `dinos`.`species` LIKE :search;';
         } else {
+            // To include pagination, include LIMIT to sql query
             $mysql = 'SELECT `dinos`.`id`, `dinos`.`species`, `foodTypes`.`name` AS `foodType`, `dinos`.`height`, `dinos`.`weight`, `dinos`.`length`, `dinos`.`killerRating`, `dinos`.`intelligence`, `dinos`.`age`, `dinos`.`imageUrl`, `foodTypes`.`imageUrl` AS `logoUrl` FROM `dinos` INNER JOIN `foodTypes` ON `dinos`.`foodType` = `foodTypes`.`id` WHERE `dinos`.`species` LIKE :search ' . $curator->getSqlLimit() .';';
         }
         // Prepares (/stores) the criteria for data we want to retrieve from the db
