@@ -17,8 +17,12 @@ class Museum
     {
         $output='';
         if($dinos){
-            $curator->setTotalPages(count($dinos));
             foreach ($dinos as $dino){
+                if($curator->getShowAll()) {
+                    $curator->setTotalPages(count($dinos));
+                } else {
+                    $curator->setTotalPages(32);
+                }
                 if($dino instanceof Dinosaur){
                 $output .= '<div class="card m-4">';
                 $output .=     '<h2 class="card-title text-center mt-3">' . $dino->getSpecies() . '</h2>';
