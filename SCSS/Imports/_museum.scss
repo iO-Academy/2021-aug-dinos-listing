@@ -5,6 +5,7 @@
 }
 
 .mainPage{
+  padding-bottom: 80px ;
   .card{
     width: 18rem;
   }
@@ -16,6 +17,14 @@
   h2 {
     height: auto;
     margin:3%;
+  }
+  footer{
+    .button{
+      border-width: 15px;
+    }
+    border-top: 1px solid $darkGreen;
+    background-color: $limeGreen;
+    height: 81px;
   }
 }
 
