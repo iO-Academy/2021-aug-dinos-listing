@@ -32,7 +32,7 @@ $filterValue = filteredValue();
 
     <div class="col">
         <div class="row d-flex flex-column flex-md-row justify-content-center align-items-center">
-            <form class="d-flex flex-column flex-md-row justify-content-center" action="">
+            <form class="d-flex flex-column flex-md-row justify-content-center align-items-center" action="">
                 <input name="search" type="search" class="form-control m-1" id="search" value="<?php echo $searchedValue; ?>">
                 <select name="filter" class="btn m-1 w-sm-50">
                     <option value="">Filter by Food Type</option>
