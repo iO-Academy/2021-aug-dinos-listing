@@ -20,6 +20,7 @@
   margin: 3%;
 }
 .mainPage footer {
+  border-top: 1px solid #21594e;
   background-color: #d9ed14;
   height: 81px;
 }
