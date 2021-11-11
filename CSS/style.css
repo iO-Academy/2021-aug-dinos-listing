@@ -7,14 +7,12 @@
 .mainPage .card {
   width: 18rem;
 }
-.mainPage .card-text {
-  font-size: 1.25em;
-}
-.mainPage .button {
+.mainPage .card-text,
+.mainPage .button,
+.mainPage h2 {
   font-size: 1.25em;
 }
 .mainPage h2 {
-  font-size: 1.25em;
   height: auto;
   margin: 3%;
 }
@@ -72,6 +70,10 @@ body {
   color: #d9ed14;
 }
 
+.navbar h1 {
+  font-size: calc(1.25rem + 2vw);
+}
+
 body {
   min-height: 100vh;
 }
@@ -91,10 +93,6 @@ body {
 
 .button:focus {
   box-shadow: 5px 5px 2px #a31423, -5px -5px 2px #a31423, 5px -5px 2px #a31423, -5px 5px 2px #a31423;
-}
-
-h1 {
-  font-size: 1.25em;
 }
 
 .displayCase {

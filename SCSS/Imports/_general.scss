@@ -8,6 +8,12 @@ body {
   color: $limeGreen;
 }
 
+.navbar{
+  h1{
+    font-size: calc(1.25rem + 2vw);
+  }
+}
+
 body {
   min-height: 100vh;
 }
@@ -29,6 +35,3 @@ body {
   box-shadow: 5px 5px 2px $red, -5px -5px 2px $red, 5px -5px 2px $red, -5px 5px 2px $red;
 }
 
-h1{
-  font-size: 1.25em;
-}
