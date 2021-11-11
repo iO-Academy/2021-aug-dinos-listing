@@ -15,7 +15,11 @@ $db = new PDO('mysql:host=db;dbname=dinosaurs;', 'root', 'password');
  */
 function checkIfSearched(PDO $db): string {
     if (isset($_GET['submit'])) {
-        return Museum::displayAllDinos(DinosaurHydrator::getSearchedDinos($db, $_GET['search'], $_GET['filter']));
+        if (isset($_GET['search'], $_GET['filter'])) {
+            return Museum::displayAllDinos(DinosaurHydrator::getSearchedDinos($db, $_GET['search'], $_GET['filter']));
+        } else {
+            return Museum::displayAllDinos(DinosaurHydrator::getAllDinos($db));
+        }
     } else {
         return Museum::displayAllDinos(DinosaurHydrator::getAllDinos($db));
     }
@@ -28,7 +32,10 @@ function checkIfSearched(PDO $db): string {
  */
 function searchedValue(): string {
     if (isset($_GET['submit'])) {
-        return $_GET['search'];
+        if (isset($_GET['search'])) {
+            return $_GET['search'];
+        }
+        return '';
     }
     return '';
 }
@@ -59,7 +66,7 @@ $searchedValue = searchedValue();
     <div class="col">
         <div class="row justify-content-center">
             <form class="d-flex flex-row align-items-center" action="">
-                <input name="search" type="search" class="form-control m-2" id="search" placeholder="<?php echo $searchedValue; ?>">
+                <input name="search" type="search" class="form-control m-2" id="search" value="<?php echo $searchedValue; ?>">
                 <select name="filter" class="btn m-1">
                     <option value="">Filter by Food Type</option>
                     <option value="Herbivore">Herbivore</option>
@@ -67,7 +74,9 @@ $searchedValue = searchedValue();
                     <option value="Carnivore">Carnivore</option>
                 </select>
                 <input name="submit" type="submit" class="btn m-1" value="Search" aria-label="Search"/>
-                <input id="reset" name="submit" type="submit" class="btn m-1" value="Clear" aria-label="Clear"/>
+            </form>
+            <form>
+                <input name="submit" type="submit" class="btn m-1" value="Clear" aria-label="Clear"/>
             </form>
         </div>
 
