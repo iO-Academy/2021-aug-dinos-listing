@@ -94,11 +94,15 @@ class Museum
         return $output;
     }
 
+    /** Creates pagination and show all buttons
+     * @param Curator $curator
+     * @return string
+     */
     public static function displayPagination(Curator $curator) {
         if ($curator->getShowAll()) {
             $output = '<ul class="pagination">';
             $output .= '<li>';
-            $output .= '<a href="?pageNumber=1" class="btn m-2">Show Less Dinos</a>';
+            $output .= '<a href="?pageNumber=1&submit=' . ($_GET['submit'] ?? '') . '&search=' . ($_GET['search'] ?? '') . '&filter=' . ($_GET['filter'] ?? '') . '" class="btn m-2">Show Less Dinos</a>';
             $output .= '</li>';
             $output .= '</ul>';
         } else {
@@ -106,13 +110,13 @@ class Museum
             $output .= '<ul class="pagination">';
             $output .= '<li>';
             if ($curator->getPageNumber() <= 1) {
-                $output .= '<a href="#" class="btn m-2 disabled">Prev</a>';
+                $output .= '<a href="#' . '&submit=' . ($_GET['submit'] ?? '') . '&search=' . ($_GET['search'] ?? '') . '&filter=' . ($_GET['filter'] ?? '') . '" class="btn m-2 disabled">Prev</a>';
             } else {
-                $output .= '<a href="?pageNumber=' . ($curator->getPageNumber() - 1) . '" class="btn m-2">Prev</a>';
+                $output .= '<a href="?pageNumber=' . ($curator->getPageNumber() - 1) . '&submit=' . ($_GET['submit'] ?? '') . '&search=' . ($_GET['search'] ?? '') . '&filter=' . ($_GET['filter'] ?? '') . '" class="btn m-2">Prev</a>';
             }
             $output .= '</li>';
             $output .= '<li>';
-            $output .= '<a href="?showAll=true" class="btn m-2">Show All Dinos</a>';
+            $output .= '<a href="?showAll=true&submit=' . ($_GET['submit'] ?? ''). '&search=' . ($_GET['search'] ?? '') . '&filter=' . ($_GET['filter'] ?? '') . '" class="btn m-2">Show All Dinos</a>';
             $output .= '</li>';
             $output .= '<li>';
             if ($curator->getPageNumber() >= $curator->getTotalPages()) {
@@ -126,4 +130,5 @@ class Museum
         return $output;
     }
 }
+//$_GET['submit'], $_GET['search'], $_GET['filter']
 
