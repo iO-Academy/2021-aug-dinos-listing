@@ -62,7 +62,7 @@ $filterValue = filteredValue();
             </a>
         </div>
         <div class="d-flex flex-row-reverse col-4">
-            <img class="pr-2" src="Images/EyupLogo.png" width="70px" alt="Eyup logo"/>
+            <img class="mx-2" src="Images/EyupLogo.png" width="70px" alt="Eyup logo"/>
         </div>
 
     </footer>
