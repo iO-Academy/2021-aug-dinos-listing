@@ -52,10 +52,19 @@ $filterValue = filteredValue();
             ?>
         </div>
     </div>
-    <footer class="footer row justify-content-center align-items-center fixed-bottom">
-        <a href="#" tabindex="-1">
-            <button class="button">To Top</button>
-        </a>
+    <footer class="footer row d-flex flex-row justify-content-center align-items-center fixed-bottom">
+        <div class="d-flex col-md-4 col-sm-12 justify-content-md-start justify-content-center align-items-center">
+            <p class="pl-2 m-0">&copy Capynotasaurus-2021</p>
+        </div>
+        <div class="d-flex flex-row justify-content-center align-items-center col-4">
+            <a href="#" tabindex="-1">
+                <button class="button">To Top</button>
+            </a>
+        </div>
+        <div class="d-flex flex-row-reverse col-4">
+            <img class="pr-2" src="Images/EyupLogo.png" width="70px" alt="Eyup logo"/>
+        </div>
+
     </footer>
 </body>
 </html>
