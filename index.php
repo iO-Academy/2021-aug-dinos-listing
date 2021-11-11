@@ -81,10 +81,10 @@ $searchedValue = searchedValue();
             <div class="pageNumbers">Page <?php echo $pageNumber . ' of ' . $totalPages ?></div>
             <ul class="pagination">
                 <li>
-                    <a href="<?php if($pageNumber <= 1){ echo '#'; } else { echo "?pageNumber=".($pageNumber - 1); } ?>" class="btn <?php if($pageNumber <= 1){ echo 'disabled'; } ?>">Prev</a>
+                    <a href="<?php if($pageNumber <= 1){ echo '#'; } else { echo "?pageNumber=".($pageNumber - 1); } ?>" class="btn m-2 <?php if($pageNumber <= 1){ echo 'disabled'; } ?>">Prev</a>
                 </li>
                 <li>
-                    <a href="<?php if($pageNumber >= $totalPages){ echo '#'; } else { echo "?pageNumber=".($pageNumber + 1); } ?>" class="btn <?php if($pageNumber >= $totalPages){ echo 'disabled'; } ?>">Next</a>
+                    <a href="<?php if($pageNumber >= $totalPages){ echo '#'; } else { echo "?pageNumber=".($pageNumber + 1); } ?>" class="btn m-2 <?php if($pageNumber >= $totalPages){ echo 'disabled'; } ?>">Next</a>
                 </li>
             </ul>
         </div>
