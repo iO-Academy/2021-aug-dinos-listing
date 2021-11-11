@@ -9,20 +9,20 @@ class Curator
 {
     protected int $pageNumber = 1;
     protected int $numberOfDinosPerPage = 8;
-    protected int $totalPages;
+    protected int $totalPages = 1;
     protected bool $showAll = false;
     protected string $sqlLimit = '';
 
-    public function __construct($db)
+    public function __construct()
     {
         $this->pageNumber = $_GET['pageNumber'] ?? 1;
-        $this->totalPages = $this->calcTotalPages($db);
         $this->sqlLimit = $this->setSqlLimit();
         $this->showAll = $_GET['showAll'] ?? false;
     }
 
-    public function calcTotalPages($db): int
+    public function calcTotalPages(PDO $db): int
     {
+
         $query = $db->prepare('SELECT COUNT(*) AS `total` FROM `dinos`;');
         $query->execute();
         // Sets the fetch mode (what format we get the data returned in) to the class of Dinosaur
@@ -38,25 +38,19 @@ class Curator
         return 'LIMIT ' . $offset . ', ' . $this->numberOfDinosPerPage;
     }
 
-    public function setPage($pageNumber)
+    /**
+     * @return int
+     */
+    public function setTotalPages(PDO $db): void
     {
-        $this->pageNumber = $pageNumber;
+        $this->totalPages = $this->calcTotalPages($db);
     }
-
     /**
      * @return int
      */
     public function getPageNumber(): int
     {
         return $this->pageNumber;
-    }
-
-    /**
-     * @return int
-     */
-    public function getNumberOfDinosPerPage(): int
-    {
-        return $this->numberOfDinosPerPage;
     }
 
     /**
@@ -81,13 +75,5 @@ class Curator
     public function getShowAll(): bool
     {
         return $this->showAll;
-    }
-
-    /**
-     * @return bool
-     */
-    public function toggleShowAll(): bool
-    {
-        return $this->showAll ? $this->showAll = false : $this->showAll = true;
     }
 }

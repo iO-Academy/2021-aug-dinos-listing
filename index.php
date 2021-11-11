@@ -8,7 +8,8 @@ require_once 'vendor/autoload.php';
 
 // Creates a variable which points to the correct database and gives username and password
 $db = new PDO('mysql:host=db;dbname=dinosaurs;', 'root', 'password');
-$curator = new Curator($db);
+$curator = new Curator();
+$curator->setTotalPages($db);
 
 /**
  * Checks if the form has been submitted and if so returns the dinos from the submitted search. If not, returns all dinos

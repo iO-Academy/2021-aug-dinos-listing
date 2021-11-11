@@ -11,6 +11,7 @@ class DinosaurHydrator
     /** Connects the database and fetches all dinosaur information, appending the foodType
      * table with a left join and returning in an array
      * @param PDO $db
+     * @param Curator $curator
      * @return Array
      */
     public static function getAllDinos(PDO $db, Curator $curator) : Array
@@ -54,6 +55,7 @@ class DinosaurHydrator
      * table with a left join and returning in an array
      * @param PDO $db
      * @param string $search
+     * @param Curator $curator
      * @return Array
      */
     public static function getSearchedDinos(PDO $db, string $search, Curator $curator): Array

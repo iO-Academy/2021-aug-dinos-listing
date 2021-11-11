@@ -103,7 +103,7 @@ class Museum
             $output .= '</ul>';
         } else {
             $output = '<div class="pageNumbers">Page ' . $curator->getPageNumber() . ' of ' . $curator->getTotalPages() . '</div>';
-            $output = '<ul class="pagination">';
+            $output .= '<ul class="pagination">';
             $output .= '<li>';
             if ($curator->getPageNumber() <= 1) {
                 $output .= '<a href="#" class="btn m-2 disabled">Prev</a>';
