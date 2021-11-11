@@ -29,8 +29,6 @@ function checkIfSearched(PDO $db): string {
 function searchedValue(): string {
     if (isset($_GET['submit'])) {
         return $_GET['search'];
-    } else {
-        return '';
     }
     return '';
 }
@@ -63,14 +61,13 @@ $searchedValue = searchedValue();
             <form class="d-flex flex-row align-items-center" action="">
                 <input name="search" type="search" class="form-control m-2" id="search" placeholder="<?php echo $searchedValue; ?>">
                 <select name="filter" class="btn m-1">
-                    <option value="0">Filter by Food Type</option>
+                    <option value="">Filter by Food Type</option>
                     <option value="Herbivore">Herbivore</option>
                     <option value="Omnivore">Omnivore</option>
                     <option value="Carnivore">Carnivore</option>
                 </select>
                 <input name="submit" type="submit" class="btn m-1" value="Search" aria-label="Search"/>
                 <input id="reset" name="submit" type="submit" class="btn m-1" value="Clear" aria-label="Clear"/>
-
             </form>
         </div>
 
