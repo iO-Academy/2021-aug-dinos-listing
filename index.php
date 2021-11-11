@@ -33,14 +33,14 @@ $filterValue = filteredValue();
     <div class="col">
         <div class="row d-flex flex-column flex-md-row justify-content-center align-items-center">
             <form class="d-flex flex-column flex-md-row justify-content-center align-items-center" action="">
-                <input name="search" type="search" class="form-control m-1" id="search" value="<?php echo $searchedValue; ?>">
-                <select name="filter" class="btn m-1 w-sm-50">
+                <input name="search" type="search" class="form-control m-1" id="search" value="<?php echo $searchedValue; ?>" aria-label="Search Field" />
+                <select name="filter" class="btn m-1 w-sm-50" aria-label="Filter">
                     <option value="">Filter by Food Type</option>
                     <option value="Herbivore" <?php if ($filterValue === 'Herbivore') { echo 'selected'; } ?> >Herbivore</option>
                     <option value="Omnivore" <?php if ($filterValue === 'Omnivore') { echo 'selected'; } ?>>Omnivore</option>
                     <option value="Carnivore" <?php if ($filterValue === 'Carnivore') { echo 'selected'; } ?>>Carnivore</option>
                 </select>
-                <input name="submit" type="submit" class="btn m-1" value="Search" aria-label="Search"/>
+                <input name="submit" type="submit" class="btn m-1" value="Search" aria-label="Submit Search"/>
             </form>
             <form class="justify-content-center">
                 <input name="submit" type="submit" class="btn m-1" value="Clear" aria-label="Clear"/>
