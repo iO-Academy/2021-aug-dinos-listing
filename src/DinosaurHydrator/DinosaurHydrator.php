@@ -3,6 +3,7 @@
 namespace DinoApp\DinosaurHydrator;
 
 use DinoApp\Dinosaur\Dinosaur;
+use DinoApp\Curator\Curator;
 use PDO;
 
 class DinosaurHydrator
@@ -12,10 +13,11 @@ class DinosaurHydrator
      * @param PDO $db
      * @return Array
      */
-    public static function getAllDinos(PDO $db) : Array
+    public static function getAllDinos(PDO $db, Curator $curator) : Array
     {
         // Prepares (/stores) the criteria for data we want to retrieve from the db
-        $query = $db->prepare('SELECT `dinos`.`id`, `dinos`.`species`, `foodTypes`.`name` AS `foodType`, `dinos`.`height`, `dinos`.`weight`, `dinos`.`length`, `dinos`.`killerRating`, `dinos`.`intelligence`, `dinos`.`age`, `dinos`.`imageUrl`, `foodTypes`.`imageUrl` AS `logoUrl` FROM `dinos` INNER JOIN `foodTypes` ON `dinos`.`foodType` = `foodTypes`.`id`;');
+        $mysql = 'SELECT `dinos`.`id`, `dinos`.`species`, `foodTypes`.`name` AS `foodType`, `dinos`.`height`, `dinos`.`weight`, `dinos`.`length`, `dinos`.`killerRating`, `dinos`.`intelligence`, `dinos`.`age`, `dinos`.`imageUrl`, `foodTypes`.`imageUrl` AS `logoUrl` FROM `dinos` INNER JOIN `foodTypes` ON `dinos`.`foodType` = `foodTypes`.`id`' . $curator->getSqlLimit();
+        $query = $db->prepare($mysql);
         $query->execute();
         // Sets the fetch mode (what format we get the data returned in) to the class of Dinosaur
         $query->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, Dinosaur::class);
