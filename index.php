@@ -34,6 +34,12 @@ function searchedValue(): string {
     }
 }
 
+// Pagination
+$pageNumber = $_GET['pageNumber'] ?? 1;
+$numberOfDinosPerPage = 10;
+$offset = ($pageNumber-1) * $numberOfDinosPerPage;
+$totalPages = 10;
+
 $display = checkIfSearched($db);
 $searchedValue = searchedValue();
 
@@ -70,6 +76,17 @@ $searchedValue = searchedValue();
             <?php
                 echo $display;
             ?>
+        </div>
+        <div class="pagination d-flex flex-column align-items-center">
+            <div class="pageNumbers">Page <?php echo $pageNumber . ' of ' . $totalPages ?></div>
+            <ul class="pagination">
+                <li>
+                    <a href="<?php if($pageNumber <= 1){ echo '#'; } else { echo "?pageNumber=".($pageNumber - 1); } ?>" class="btn m-2 <?php if($pageNumber <= 1){ echo 'disabled'; } ?>">Prev</a>
+                </li>
+                <li>
+                    <a href="<?php if($pageNumber >= $totalPages){ echo '#'; } else { echo "?pageNumber=".($pageNumber + 1); } ?>" class="btn m-2 <?php if($pageNumber >= $totalPages){ echo 'disabled'; } ?>">Next</a>
+                </li>
+            </ul>
         </div>
     </div>
 </body>
