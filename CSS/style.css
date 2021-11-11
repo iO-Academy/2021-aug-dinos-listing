@@ -4,14 +4,19 @@
   border-radius: 10px;
 }
 
+.mainPage .card {
+  width: 18rem;
+}
+.mainPage .card-text {
+  font-size: 1.25em;
+}
+.mainPage .button {
+  font-size: 1.25em;
+}
 .mainPage h2 {
   font-size: 1.25em;
   height: auto;
   margin: 3%;
-}
-
-.mainPage h1 {
-  font-size: calc(23px + 1vw);
 }
 
 .card-body {
@@ -88,6 +93,10 @@ body {
   box-shadow: 5px 5px 2px #a31423, -5px -5px 2px #a31423, 5px -5px 2px #a31423, -5px 5px 2px #a31423;
 }
 
+h1 {
+  font-size: 1.25em;
+}
+
 .displayCase {
   font-size: calc(30px + 0.3vw);
   border-radius: 10px;
@@ -100,6 +109,13 @@ body {
 .displayCase .stat {
   text-shadow: 2px 2px #21594e, 2px -2px #21594e, -2px 2px #21594e, -2px -2px #21594e;
   color: #FFFFFF;
+}
+.displayCase h1 {
+  overflow-wrap: break-word;
+  font-size: 1.1em;
+}
+.displayCase .displayCaseDino {
+  border: 1px solid #21594e;
 }
 
 /*# sourceMappingURL=style.css.map */

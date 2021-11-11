@@ -4,14 +4,21 @@
   border-radius: 10px;
 }
 
-.mainPage h2 {
-  font-size: 1.25em;
-  height: auto;
-  margin:3%;
-}
-
-.mainPage h1 {
-  font-size: calc(23px + 1vw);
+.mainPage{
+  .card{
+    width: 18rem;
+  }
+  .card-text{
+    font-size: 1.25em;
+  }
+  .button{
+    font-size: 1.25em;
+  }
+  h2 {
+    font-size: 1.25em;
+    height: auto;
+    margin:3%;
+  }
 }
 
 .card-body {

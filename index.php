@@ -66,7 +66,6 @@ $searchedValue = searchedValue();
                 </div>
             </form>
         </div>
-
         <div class="row justify-content-center">
             <?php
                 echo $display;
