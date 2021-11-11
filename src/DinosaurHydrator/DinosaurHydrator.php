@@ -3,19 +3,29 @@
 namespace DinoApp\DinosaurHydrator;
 
 use DinoApp\Dinosaur\Dinosaur;
+use DinoApp\Curator\Curator;
 use PDO;
 
 class DinosaurHydrator
 {
     /** Connects the database and fetches all dinosaur information, appending the foodType
      * table with a left join and returning in an array
+     * Accounts for pagination and shows relevant results to page number as applicable
      * @param PDO $db
+     * @param Curator $curator
      * @return Array
      */
-    public static function getAllDinos(PDO $db) : Array
+    public static function getAllDinos(PDO $db, Curator $curator) : Array
     {
         // Prepares (/stores) the criteria for data we want to retrieve from the db
-        $query = $db->prepare('SELECT `dinos`.`id`, `dinos`.`species`, `foodTypes`.`name` AS `foodType`, `dinos`.`height`, `dinos`.`weight`, `dinos`.`length`, `dinos`.`killerRating`, `dinos`.`intelligence`, `dinos`.`age`, `dinos`.`imageUrl`, `foodTypes`.`imageUrl` AS `logoUrl` FROM `dinos` INNER JOIN `foodTypes` ON `dinos`.`foodType` = `foodTypes`.`id`;');
+        if ($curator->getShowAll()) {
+            // If user wants to show all the dinos, do not include LIMIT to sql query
+            $mysql = 'SELECT `dinos`.`id`, `dinos`.`species`, `foodTypes`.`name` AS `foodType`, `dinos`.`height`, `dinos`.`weight`, `dinos`.`length`, `dinos`.`killerRating`, `dinos`.`intelligence`, `dinos`.`age`, `dinos`.`imageUrl`, `foodTypes`.`imageUrl` AS `logoUrl` FROM `dinos` INNER JOIN `foodTypes` ON `dinos`.`foodType` = `foodTypes`.`id`';
+        } else {
+            // To include pagination, include LIMIT to sql query
+            $mysql = 'SELECT `dinos`.`id`, `dinos`.`species`, `foodTypes`.`name` AS `foodType`, `dinos`.`height`, `dinos`.`weight`, `dinos`.`length`, `dinos`.`killerRating`, `dinos`.`intelligence`, `dinos`.`age`, `dinos`.`imageUrl`, `foodTypes`.`imageUrl` AS `logoUrl` FROM `dinos` INNER JOIN `foodTypes` ON `dinos`.`foodType` = `foodTypes`.`id`' . $curator->getSqlLimit();
+        }
+        $query = $db->prepare($mysql);
         $query->execute();
         // Sets the fetch mode (what format we get the data returned in) to the class of Dinosaur
         $query->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, Dinosaur::class);
@@ -48,12 +58,21 @@ class DinosaurHydrator
      * table with a left join and returning in an array
      * @param PDO $db
      * @param string $search
+     * @param Curator $curator
      * @return Array
      */
-    public static function getSearchedDinos(PDO $db, string $search): Array
+    public static function getSearchedDinos(PDO $db, string $search, Curator $curator): Array
     {
+        if ($curator->getShowAll()) {
+            // Prepares (/stores) the criteria for data we want to retrieve from the db
+            // If user wants to show all the dinos, do not include LIMIT to sql query
+            $mysql = 'SELECT `dinos`.`id`, `dinos`.`species`, `foodTypes`.`name` AS `foodType`, `dinos`.`height`, `dinos`.`weight`, `dinos`.`length`, `dinos`.`killerRating`, `dinos`.`intelligence`, `dinos`.`age`, `dinos`.`imageUrl`, `foodTypes`.`imageUrl` AS `logoUrl` FROM `dinos` INNER JOIN `foodTypes` ON `dinos`.`foodType` = `foodTypes`.`id` WHERE `dinos`.`species` LIKE :search;';
+        } else {
+            // To include pagination, include LIMIT to sql query
+            $mysql = 'SELECT `dinos`.`id`, `dinos`.`species`, `foodTypes`.`name` AS `foodType`, `dinos`.`height`, `dinos`.`weight`, `dinos`.`length`, `dinos`.`killerRating`, `dinos`.`intelligence`, `dinos`.`age`, `dinos`.`imageUrl`, `foodTypes`.`imageUrl` AS `logoUrl` FROM `dinos` INNER JOIN `foodTypes` ON `dinos`.`foodType` = `foodTypes`.`id` WHERE `dinos`.`species` LIKE :search ' . $curator->getSqlLimit() .';';
+        }
         // Prepares (/stores) the criteria for data we want to retrieve from the db
-        $query = $db->prepare("SELECT `dinos`.`id`, `dinos`.`species`, `foodTypes`.`name` AS `foodType`, `dinos`.`height`, `dinos`.`weight`, `dinos`.`length`, `dinos`.`killerRating`, `dinos`.`intelligence`, `dinos`.`age`, `dinos`.`imageUrl`, `foodTypes`.`imageUrl` AS `logoUrl` FROM `dinos` INNER JOIN `foodTypes` ON `dinos`.`foodType` = `foodTypes`.`id` WHERE `dinos`.`species` LIKE :search;");
+        $query = $db->prepare($mysql);
         $query->execute([':search' => '%' . trim($search) . '%']);
         // Sets the fetch mode (what format we get the data returned in) to the class of Dinosaur
         $query->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, Dinosaur::class);

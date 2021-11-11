@@ -1,4 +1,6 @@
 <?php
+
+use DinoApp\Curator\Curator;
 use DinoApp\Museum\Museum;
 use DinoApp\DinosaurHydrator\DinosaurHydrator;
 
@@ -6,6 +8,8 @@ require_once 'vendor/autoload.php';
 
 // Creates a variable which points to the correct database and gives username and password
 $db = new PDO('mysql:host=db;dbname=dinosaurs;', 'root', 'password');
+$curator = new Curator();
+$curator->setTotalPages($db);
 
 /**
  * Checks if the form has been submitted and if so returns the dinos from the submitted search. If not, returns all dinos
@@ -13,11 +17,11 @@ $db = new PDO('mysql:host=db;dbname=dinosaurs;', 'root', 'password');
  * @param PDO $db database
  * @return string of dinos to be displayed
  */
-function checkIfSearched(PDO $db): string {
+function checkIfSearched(PDO $db, $curator): string {
     if (isset($_GET['submit'])) {
-        return Museum::displayAllDinos(DinosaurHydrator::getSearchedDinos($db, $_GET['search']));
+        return Museum::displayAllDinos(DinosaurHydrator::getSearchedDinos($db, $_GET['search'], $curator));
     } else {
-        return Museum::displayAllDinos(DinosaurHydrator::getAllDinos($db));
+        return Museum::displayAllDinos(DinosaurHydrator::getAllDinos($db, $curator));
     }
 }
 
@@ -34,13 +38,7 @@ function searchedValue(): string {
     }
 }
 
-// Pagination
-$pageNumber = $_GET['pageNumber'] ?? 1;
-$numberOfDinosPerPage = 10;
-$offset = ($pageNumber-1) * $numberOfDinosPerPage;
-$totalPages = 10;
-
-$display = checkIfSearched($db);
+$display = checkIfSearched($db, $curator);
 $searchedValue = searchedValue();
 
 ?>
@@ -78,15 +76,9 @@ $searchedValue = searchedValue();
             ?>
         </div>
         <div class="pagination d-flex flex-column align-items-center">
-            <div class="pageNumbers">Page <?php echo $pageNumber . ' of ' . $totalPages ?></div>
-            <ul class="pagination">
-                <li>
-                    <a href="<?php if($pageNumber <= 1){ echo '#'; } else { echo "?pageNumber=".($pageNumber - 1); } ?>" class="btn m-2 <?php if($pageNumber <= 1){ echo 'disabled'; } ?>">Prev</a>
-                </li>
-                <li>
-                    <a href="<?php if($pageNumber >= $totalPages){ echo '#'; } else { echo "?pageNumber=".($pageNumber + 1); } ?>" class="btn m-2 <?php if($pageNumber >= $totalPages){ echo 'disabled'; } ?>">Next</a>
-                </li>
-            </ul>
+            <?php
+                echo Museum::displayPagination($curator);
+            ?>
         </div>
     </div>
 </body>
