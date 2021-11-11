@@ -122,7 +122,7 @@ class Museum
             if ($curator->getPageNumber() >= $curator->getTotalPages()) {
                 $output .= '<a href="#" class="btn m-2 disabled">Next</a>';
             } else {
-                $output .= '<a href="?pageNumber=' . ($curator->getPageNumber() + 1) . '" class="btn m-2">Next</a>';
+                $output .= '<a href="?pageNumber=' . ($curator->getPageNumber() + 1) . '&submit=' . ($_GET['submit'] ?? ''). '&search=' . ($_GET['search'] ?? '') . '&filter=' . ($_GET['filter'] ?? '') . '" class="btn m-2">Next</a>';
             }
             $output .= '</li>';
             $output .= '</ul>';
@@ -130,5 +130,4 @@ class Museum
         return $output;
     }
 }
-//$_GET['submit'], $_GET['search'], $_GET['filter']
 
