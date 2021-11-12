@@ -1,6 +1,7 @@
 <?php
 
 use DinoApp\Museum\Museum;
+use DinoApp\Curator\Curator;
 use DinoApp\DinosaurHydrator\DinosaurHydrator;
 
 /**
@@ -9,11 +10,11 @@ use DinoApp\DinosaurHydrator\DinosaurHydrator;
  * @param PDO $db database
  * @return string of dinos to be displayed
  */
-function checkIfSearched(PDO $db): string {
+function checkIfSearched(PDO $db, Curator $curator): string {
     if (isset($_GET['submit'], $_GET['search'], $_GET['filter'])) {
-        return Museum::displayAllDinos(DinosaurHydrator::getSearchedDinos($db, $_GET['search'], $_GET['filter']));
+        return Museum::displayAllDinos(DinosaurHydrator::getSearchedDinos($db, $_GET['search'], $curator, $_GET['filter']), $curator);
     }
-    return Museum::displayAllDinos(DinosaurHydrator::getAllDinos($db));
+    return Museum::displayAllDinos(DinosaurHydrator::getAllDinos($db, $curator), $curator);
 }
 
 /**

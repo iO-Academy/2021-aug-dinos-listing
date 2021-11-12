@@ -68,6 +68,18 @@
   padding: 10px !important;
 }
 
+.pagination .btn {
+  font-size: calc(20px + 0.3vw);
+}
+.pagination .pageNumbers {
+  font-size: calc(25px + 0.3vw);
+}
+
+.disable {
+  pointer-events: none;
+  cursor: default;
+}
+
 @media only screen and (max-width: 768px) {
   .mainPage {
     padding-bottom: 100px;

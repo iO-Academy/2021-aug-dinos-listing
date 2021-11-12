@@ -3,6 +3,7 @@
 namespace DinoApp\Museum;
 
 use DinoApp\Dinosaur\Dinosaur;
+use DinoApp\Curator\Curator;
 
 class Museum
 {
@@ -12,11 +13,16 @@ class Museum
      * @param array $dinos an array of Dinosaur objects.
      * @return string
      */
-    public static function displayAllDinos(array $dinos) :string
+    public static function displayAllDinos(array $dinos, Curator $curator) :string
     {
         $output='';
         if($dinos){
             foreach ($dinos as $dino){
+                if($curator->getShowAll()) {
+                    $curator->setTotalPages(count($dinos));
+                } else {
+                    $curator->setTotalPages(32);
+                }
                 if($dino instanceof Dinosaur){
                 $output .= '<div class="card m-4">';
                 $output .=     '<h2 class="card-title text-center mt-3">' . $dino->getSpecies() . '</h2>';
@@ -90,6 +96,42 @@ class Museum
         $output .=         '</a>';
         $output .=     '</div>';
         $output .= '</div>';
+        return $output;
+    }
+
+    /** Creates pagination and show all buttons
+     * @param Curator $curator
+     * @return string
+     */
+    public static function displayPagination(Curator $curator) {
+        if ($curator->getShowAll()) {
+            $output = '<ul class="pagination">';
+            $output .= '<li>';
+            $output .= '<a href="?pageNumber=1&submit=' . ($_GET['submit'] ?? '') . '&search=' . ($_GET['search'] ?? '') . '&filter=' . ($_GET['filter'] ?? '') . '" class="btn m-2">Show Less Dinos</a>';
+            $output .= '</li>';
+            $output .= '</ul>';
+        } else {
+            $output = '<div class="pageNumbers">Page ' . $curator->getPageNumber() . ' of ' . $curator->getTotalPages() . '</div>';
+            $output .= '<ul class="pagination">';
+            $output .= '<li>';
+            if ($curator->getPageNumber() <= 1) {
+                $output .= '<a href="#' . '&submit=' . ($_GET['submit'] ?? '') . '&search=' . ($_GET['search'] ?? '') . '&filter=' . ($_GET['filter'] ?? '') . '" class="btn m-2 disabled">Prev</a>';
+            } else {
+                $output .= '<a href="?pageNumber=' . ($curator->getPageNumber() - 1) . '&submit=' . ($_GET['submit'] ?? '') . '&search=' . ($_GET['search'] ?? '') . '&filter=' . ($_GET['filter'] ?? '') . '" class="btn m-2">Prev</a>';
+            }
+            $output .= '</li>';
+            $output .= '<li>';
+            $output .= '<a href="?showAll=true&submit=' . ($_GET['submit'] ?? ''). '&search=' . ($_GET['search'] ?? '') . '&filter=' . ($_GET['filter'] ?? '') . '" class="btn m-2">Show All Dinos</a>';
+            $output .= '</li>';
+            $output .= '<li>';
+            if ($curator->getPageNumber() >= $curator->getTotalPages()) {
+                $output .= '<a href="#" class="btn m-2 disabled">Next</a>';
+            } else {
+                $output .= '<a href="?pageNumber=' . ($curator->getPageNumber() + 1) . '&submit=' . ($_GET['submit'] ?? ''). '&search=' . ($_GET['search'] ?? '') . '&filter=' . ($_GET['filter'] ?? '') . '" class="btn m-2">Next</a>';
+            }
+            $output .= '</li>';
+            $output .= '</ul>';
+        }
         return $output;
     }
 }

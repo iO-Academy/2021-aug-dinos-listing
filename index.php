@@ -1,12 +1,18 @@
 <?php
 
+use DinoApp\Curator\Curator;
+use DinoApp\Museum\Museum;
+use DinoApp\DinosaurHydrator\DinosaurHydrator;
+
+
 require_once 'vendor/autoload.php';
 require_once 'src/functions.php';
 
 // Creates a variable which points to the correct database and gives username and password
 $db = new PDO('mysql:host=db;dbname=dinosaurs;', 'root', 'password');
+$curator = new Curator();
 
-$display = checkIfSearched($db);
+$display = checkIfSearched($db, $curator);
 $searchedValue = searchedValue();
 $filterValue = filteredValue();
 
@@ -49,6 +55,11 @@ $filterValue = filteredValue();
         <div class="row justify-content-center">
             <?php
                 echo $display;
+            ?>
+        </div>
+        <div class="pagination d-flex flex-column align-items-center">
+            <?php
+                echo Museum::displayPagination($curator);
             ?>
         </div>
     </div>

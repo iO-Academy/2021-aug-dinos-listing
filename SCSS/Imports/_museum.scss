@@ -68,10 +68,25 @@
   padding: 10px !important;
 }
 
-@media only screen and (max-width: 768px){
-  .mainPage{
+.pagination{
+  .btn {
+    font-size: calc(20px + 0.3vw);
+  }
+  .pageNumbers {
+    font-size: calc(25px + 0.3vw);
+  }
+}
+
+.disable {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media only screen and (max-width: 768px) {
+  .mainPage {
     padding-bottom: 100px;
-    footer{
+
+    footer {
       height: 101px;
     }
   }
